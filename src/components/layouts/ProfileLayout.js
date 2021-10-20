@@ -5,9 +5,11 @@ const ProfileLayout = (props) => {
 
   return (
     <div style={{
-      backgroundColor
+      backgroundColor,
     }} className="profile-app-page-container">
-      {props.children}
+      <div className="profile-app-page-grid">
+        {props.children}
+      </div>
     </div>
   )
 }

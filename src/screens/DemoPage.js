@@ -5,14 +5,13 @@ import {ProfileCard, SinglePost, TweetCard, RecentPosts} from 'glance-react-comp
 
 const DemoPage = () => {
   const proxy = `${process.env.REACT_APP_MS}/v1/proxy_feed_parser?uri=`;
-  const [mediumPosts, loading, errorMessage] = useFetchFeed("https://medium.com/feed/@mattq022", proxy, 3)
+  const [mediumPosts, loading, errorMessage] = useFetchFeed("https://medium.com/feed/@jamievaron", proxy, 3)
   const [hashnodePosts, _loading, _errorMessage] = useFetchFeed("https://miguendes.me/rss.xml", proxy, 5)
 
 
   return (
-    <ProfileLayout backgroundColor="#0E163B">
-      <div className="profile-app-page-main">
-        <div>
+    <ProfileLayout backgroundColor="#0E163B">      
+        <div className="col-1">
           <ProfileCard
             title="Jenny Wilson"
             subtitle="Font-end Developer"
@@ -91,7 +90,7 @@ const DemoPage = () => {
             secondaryTextColor="#6E7598"      
           />          
         </div>
-        <div>
+        <div className="col-2">
           <RecentPosts 
             title={"Medium Posts"} 
             iconName={"medium"} 
@@ -131,7 +130,7 @@ const DemoPage = () => {
             postPubDateTextColor="#FFFFFF80"
           />
         </div>
-      </div>
+      
     </ProfileLayout>
   )
 }
