@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom';
+import { Router } from "react-router";
+import { createBrowserHistory } from "history";
+import {setNavigator} from '../src/libs'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const history = createBrowserHistory();
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router history={history} ref={() => {setNavigator(history)} }>
+      <Suspense fallback={<h2>Loading...</h2>}>
+        <App />
+      </Suspense>
+    </Router>    
   </React.StrictMode>,
   document.getElementById('root')
 );
