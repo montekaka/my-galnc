@@ -1,0 +1,9 @@
+.profile-app-page-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-app-page-main {
+  max-width: 1050px;
+}
