@@ -1,20 +1,14 @@
 .profile-app-page-container {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  padding: 88px 0 88px 0;
+  /* display: flex;
+  justify-content: center; */
+  padding: 20px;
 }
 
-/* https://www.youtube.com/watch?v=211A79O_jX8&list=PL4cUxeGkcC9itC4TxYMzFCfveyutyPOCY&index=5 */
-/* https://ishadeed.com/article/spacing-in-css/ */
 .profile-app-page-grid {
-  /* background-color: antiquewhite; */
-  max-width: 1050px;
-  display: grid;
-  grid-template-columns: 360px minmax(0, 1fr);
-  /* column-gap: 16px; */
-  grid-gap: 1rem;
-  /* display: grid; */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 /* https://coryrylan.com/blog/css-gap-space-with-flexbox */
@@ -28,4 +22,24 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+@media screen and (min-width: 1200px) {
+  .profile-app-page-container {
+    display: flex;
+    justify-content: center;
+    padding: 88px 0 88px 0;
+  }
+
+  /* https://www.youtube.com/watch?v=211A79O_jX8&list=PL4cUxeGkcC9itC4TxYMzFCfveyutyPOCY&index=5 */
+  /* https://ishadeed.com/article/spacing-in-css/ */
+  .profile-app-page-grid {
+    /* background-color: antiquewhite; */
+    max-width: 1050px;
+    display: grid;
+    grid-template-columns: 360px minmax(0, 1fr);
+    /* column-gap: 16px; */
+    grid-gap: 1rem;
+    /* display: grid; */
+  }
 }
