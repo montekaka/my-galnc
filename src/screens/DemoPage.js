@@ -1,8 +1,14 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {ProfileLayout} from '../components'
-import {ProfileCard, SinglePost, TweetCard} from 'glance-react-components'
+import {useFetchFeed} from '../hooks'
+import {ProfileCard, SinglePost, TweetCard, RecentPosts} from 'glance-react-components'
 
 const DemoPage = () => {
+  const proxy = `${process.env.REACT_APP_MS}/v1/proxy_feed_parser?uri=`;
+  const [mediumPosts, loading, errorMessage] = useFetchFeed("https://medium.com/feed/@mattq022", proxy, 3)
+  const [hashnodePosts, _loading, _errorMessage] = useFetchFeed("https://miguendes.me/rss.xml", proxy, 5)
+
+
   return (
     <ProfileLayout backgroundColor="#0E163B">
       <div className="profile-app-page-main">
@@ -86,7 +92,44 @@ const DemoPage = () => {
           />          
         </div>
         <div>
-          
+          <RecentPosts 
+            title={"Medium Posts"} 
+            iconName={"medium"} 
+            posts={mediumPosts} 
+            showThumbnail={false}
+            backgroundColor={"#131C45"}
+            fontFamily="DM Sans"
+            headerIconStyle={{
+              width: "24px",
+              height: "24px",
+              rectFill: "#3CD5ED",
+              pathFill: "#fff"
+            }}
+            headerStyle={{
+              color: "#FFFFFF80"
+            }}
+            postTitleTextColor="#FFFFFF"
+            postPubDateTextColor="#FFFFFF80"
+          />
+          <RecentPosts 
+            title={"Hashnode Posts"} 
+            iconName={"hashnode"} 
+            posts={hashnodePosts} 
+            showThumbnail={true}
+            backgroundColor={"#131C45"}
+            fontFamily="DM Sans"
+            headerIconStyle={{
+              width: "24px",
+              height: "24px",
+              rectFill: "#3CD5ED",
+              pathFill: "#fff"
+            }}
+            headerStyle={{
+              color: "#FFFFFF80"
+            }}
+            postTitleTextColor="#FFFFFF"
+            postPubDateTextColor="#FFFFFF80"
+          />
         </div>
       </div>
     </ProfileLayout>
