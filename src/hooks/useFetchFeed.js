@@ -43,8 +43,8 @@ const useFetchFeed = (url, proxy, numberOfItems) => {
           } else {
             return x;
           }
-        })
-
+        })        
+        
         setLoading(false);
         setItems(__items)
       })

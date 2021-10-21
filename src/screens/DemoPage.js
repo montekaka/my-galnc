@@ -5,8 +5,8 @@ import {ProfileCard, SinglePost, TweetCard, RecentPosts} from 'glance-react-comp
 
 const DemoPage = () => {
   const proxy = `${process.env.REACT_APP_MS}/v1/proxy_feed_parser?uri=`;
-  const [mediumPosts, loading, errorMessage] = useFetchFeed("https://medium.com/feed/@jamievaron", proxy, 3)
-  const [hashnodePosts, _loading, _errorMessage] = useFetchFeed("https://miguendes.me/rss.xml", proxy, 5)
+  const [mediumPosts, mediumLoading, errorMessage] = useFetchFeed("https://medium.com/feed/@jamievaron", proxy, 3)
+  const [hashnodePosts, hashnodeLoading, _errorMessage] = useFetchFeed("https://miguendes.me/rss.xml", proxy, 5)
 
 
   return (
@@ -92,6 +92,7 @@ const DemoPage = () => {
         </div>
         <div className="col-2">
           <RecentPosts 
+            loading={mediumLoading}
             title={"Medium Posts"} 
             iconName={"medium"} 
             posts={mediumPosts} 
@@ -111,6 +112,7 @@ const DemoPage = () => {
             postPubDateTextColor="#FFFFFF80"
           />
           <RecentPosts 
+            loading={hashnodeLoading}
             title={"Hashnode Posts"} 
             iconName={"hashnode"} 
             posts={hashnodePosts} 
