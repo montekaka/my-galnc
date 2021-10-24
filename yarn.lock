@@ -5280,10 +5280,10 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-glance-react-components@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/glance-react-components/-/glance-react-components-0.0.7.tgz#bbf2a2d6605c080d05c3d07f4ca8321e7a8e8979"
-  integrity sha512-ix3OqhzYjfL01ZO9bEVwq8uzub0Xf/z3+LdOSJJr6VKaOsonbsNAJXKccZqTzlYvYjTzpL0iEExaH8KSEcFErQ==
+glance-react-components@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/glance-react-components/-/glance-react-components-0.1.0.tgz#76918ee36a9802d2d359e6369a70574b2506527e"
+  integrity sha512-pHnv20qXrAp5/ufVCu8N540olPTIl+lNcCfSNrMWtkjQQro+l/f7L2kDIfmpUYWciRq6EVZg9GcoU4KpX+Q2HA==
 
 glob-parent@^3.1.0:
   version "3.1.0"

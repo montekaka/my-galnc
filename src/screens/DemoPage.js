@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from "react";
 import {ProfileLayout} from '../components'
 import {useFetchFeed} from '../hooks'
-import {ProfileCard, SinglePost, TweetCard, RecentPosts} from 'glance-react-components'
+import {
+  GithubCalendarCard,
+  ProfileCard, SinglePost, 
+  TweetCard, RecentPosts
+} from 'glance-react-components'
 
 const DemoPage = () => {
   const proxy = `${process.env.REACT_APP_MS}/v1/proxy_feed_parser?uri=`;
@@ -91,6 +95,26 @@ const DemoPage = () => {
           />          
         </div>
         <div className="col-2">
+          <GithubCalendarCard
+              title="Github"
+              iconName="github"
+              username="montekaka"
+              backgroundColor="#131C45"
+              cardBackgroundColor="#1B275A"  
+              linkColor="#6E7598"
+              linkBackgroundColor="#182354"
+              fontFamily="DM Sans"    
+              headerIconStyle={{
+                width: "24px",
+                height: "24px",
+                rectFill: "#FFFFFF",
+                pathFill: "#FFFFFF"
+              }}
+              headerStyle={{
+                color: "#6E7598"
+              }}   
+              colors={["#1B275A","#BBE3D5","#006d32","#26a641","#39d353"]}
+          />
           <RecentPosts 
             loading={mediumLoading}
             title={"Medium Posts"} 
