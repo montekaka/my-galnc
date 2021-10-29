@@ -4,7 +4,7 @@ import {useFetchFeed} from '../hooks'
 import {
   GithubCalendarCard,
   ProfileCard, SinglePost, 
-  TweetCard, RecentPosts
+  TweetCard, RecentPosts, MyStacks
 } from 'glance-react-components'
 
 const DemoPage = () => {
@@ -46,6 +46,23 @@ const DemoPage = () => {
             }
           ]}
           />
+          <MyStacks
+            title="Technical Skills"
+            iconName="tech-stacks"
+            fontFamily="Inter"
+            backgroundColor="#131C45"      
+            headerIconStyle={{
+              width: "24px",
+              height: "24px",
+              rectFill: "#FFFFFF",
+              pathFill: "#FFFFFF"
+            }}
+            headerStyle={{
+              color: "#6E7598"
+            }}  
+            stacksBackgroundColor="#222E66"
+            stacks={['python', 'my-sql', 'react-js', 'ant-design', 'firebase', 'nginx', 'mongo']}
+          />          
           <SinglePost 
             title="Recent project"
             iconName="dribbble"
