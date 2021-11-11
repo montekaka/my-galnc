@@ -9,7 +9,6 @@ const ProfilePage = (props) => {
 
   return (
     <ProfileLayout backgroundColor={darkColor}>
-      
     </ProfileLayout>  
   )
 }
