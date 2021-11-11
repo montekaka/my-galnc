@@ -6,12 +6,13 @@ import {
   Link
 } from "react-router-dom";
 
-import {DemoPage} from '../screens'
+import {DemoPage, ProfilePage} from '../screens'
 
 const MainRoutes = () => {
   return (
     <Switch>
       <Route exact path="/" component={DemoPage} />
+      <Route exact path="/:id" component={ProfilePage} />
     </Switch>
   )
 }
