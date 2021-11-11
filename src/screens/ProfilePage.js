@@ -62,13 +62,36 @@ const ProfilePage = (props) => {
             }}  
             stacksBackgroundColor="#222E66"
             stacks={techSkills}
-          />                   
+          />
+          <>
+          {bannerWidgets.map((widget, idx) => {
+            return (
+              <Widget
+                key={`banner-${idx+1}`}
+                name={widget.name}
+                widget_type={widget.widget_type}
+                icon_name={widget.icon_name}
+                user_name={widget.user_name}
+                post_title={widget.post_title}
+                post_description={widget.post_description}
+                url={widget.url}
+                sort_order={widget.sort_order}
+                is_dynamic_content={widget.is_dynamic_content}
+                image_url={widget.image_url}
+                section_name={widget.section_name}
+                link_type={widget.link_type}
+                avatar_url={widget.avatar_url}
+                show_thumbnail={widget.show_thumbnail}
+              />)
+            }
+          )}          
+          </>
         </div>
         <div className="col-2">
           {bodyWidgets.map((widget, idx) => {
             return (
               <Widget
-                key={idx+1}
+                key={`body-${idx+1}`}
                 name={widget.name}
                 widget_type={widget.widget_type}
                 icon_name={widget.icon_name}

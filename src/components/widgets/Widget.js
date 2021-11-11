@@ -37,6 +37,35 @@ const Widget = (props) => {
           colors={["#1B275A","#BBE3D5","#006d32","#26a641","#39d353"]}
       />      
     )
+  } else if (widget_type === 'tweet') {
+    return (
+      <TweetCard 
+        title={name}
+        iconName={icon_name}
+        tweetBody={post_description}
+        screenName={`@${user_name}`}
+        authorName={post_title}
+        avatar={avatar_url}
+        // likes="16"
+        // pubDate="2021-10-19T05:43:01+0000"
+        link={url}
+        backgroundColor={primary_color}
+        cardBackgroundColor={danger_color}
+        avatarBackgroundColor="#553BFF"
+        fontFamily={font_family}
+        headerIconStyle={{
+          width: "24px",
+          height: "24px",
+          rectFill: secondary_color,
+          pathFill: "#1DA1F2"
+        }}
+        headerStyle={{
+          color: light_color
+        }}
+        primaryTextColor={info_color}
+        secondaryTextColor={light_color}
+      />      
+    )
   }
   return null;
 }
