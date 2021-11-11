@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useAtom } from 'jotai';
 import {updateThemeAtom} from './../jotais'
-import {ProfileLayout} from '../components'
+import {ProfileLayout, Widget} from '../components'
 import {useFetchProfile} from '../hooks'
 import {ProfileCard, MyStacks} from 'glance-react-components'
 
@@ -63,6 +63,29 @@ const ProfilePage = (props) => {
             stacksBackgroundColor="#222E66"
             stacks={techSkills}
           />                   
+        </div>
+        <div className="col-2">
+          {bodyWidgets.map((widget, idx) => {
+            return (
+              <Widget
+                key={idx+1}
+                name={widget.name}
+                widget_type={widget.widget_type}
+                icon_name={widget.icon_name}
+                user_name={widget.user_name}
+                post_title={widget.post_title}
+                post_description={widget.post_description}
+                url={widget.url}
+                sort_order={widget.sort_order}
+                is_dynamic_content={widget.is_dynamic_content}
+                image_url={widget.image_url}
+                section_name={widget.section_name}
+                link_type={widget.link_type}
+                avatar_url={widget.avatar_url}
+                show_thumbnail={widget.show_thumbnail}
+              />)
+            }
+          )}
         </div>
       </ProfileLayout>  
     )
