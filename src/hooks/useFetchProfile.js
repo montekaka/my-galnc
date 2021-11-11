@@ -8,7 +8,7 @@ const useFetchProfile = (slug) => {
   const [techSkills, setTechSkills] = useState([]);
   const [bodyWidgets, setBodyWidgets] = useState([]);
   const [bannerWidgets, setBannerWidgets] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
