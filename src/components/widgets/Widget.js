@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { useAtom } from 'jotai';
 import {themeAtom} from '../../jotais'
 import {
@@ -6,6 +6,7 @@ import {
   ProfileCard, SinglePost, 
   TweetCard, RecentPosts, MyStacks
 } from 'glance-react-components'
+import RssFeedWidget from './RssFeedWidget'
 
 const Widget = (props) => {
   const {name, widget_type, icon_name, post_title, post_description, url, is_dynamic_content, sort_order, image_url, user_name, link_type, avatar_url, show_thumbnail} = props;
@@ -65,6 +66,24 @@ const Widget = (props) => {
         primaryTextColor={info_color}
         secondaryTextColor={light_color}
       />      
+    )
+  } else if (widget_type === 'rss' && is_dynamic_content) {
+    return (
+      <RssFeedWidget
+        name={name}
+        widget_type={widget_type}
+        icon_name={icon_name}
+        user_name={user_name}
+        post_title={post_title}
+        post_description={post_description}
+        url={url}
+        sort_order={sort_order}
+        is_dynamic_content={is_dynamic_content}
+        image_url={image_url}
+        link_type={link_type}
+        avatar_url={avatar_url}
+        show_thumbnail={show_thumbnail}      
+      />
     )
   }
   return null;
