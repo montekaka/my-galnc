@@ -35,7 +35,7 @@ export const tryLocalSignin = atom(null, (_get, set) => {
 export const signin = atom(null, (get, set, tryUser) => {
   const {email, password, is_activated} = tryUser;
   const _email = email.toLowerCase();
-  const notiData = get(notificationAtom);
+  // const notiData = get(notificationAtom);
 
   set(authAtom, async () => {        
     try {      

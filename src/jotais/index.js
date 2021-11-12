@@ -1,6 +1,11 @@
 import {themeAtom, updateThemeAtom} from './themeAtom'
+import {authAtom, tryLocalSignin, signout, signin} from './authAtom'
 
 export {
   themeAtom,
-  updateThemeAtom
+  updateThemeAtom,
+  authAtom, 
+  tryLocalSignin, 
+  signout, 
+  signin
 }
