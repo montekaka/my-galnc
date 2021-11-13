@@ -1,5 +1,6 @@
 import {themeAtom, updateThemeAtom} from './themeAtom'
 import {authAtom, tryLocalSignin, signout, signin} from './authAtom'
+import {notificationAtom, updateNotificationAtom} from './notificationAtom'
 
 export {
   themeAtom,
@@ -7,5 +8,7 @@ export {
   authAtom, 
   tryLocalSignin, 
   signout, 
-  signin
+  signin,
+  notificationAtom,
+  updateNotificationAtom
 }

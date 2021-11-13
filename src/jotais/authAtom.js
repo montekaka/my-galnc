@@ -1,6 +1,7 @@
 import { atom } from "jotai";
 import AsyncStorage from '../libs/AsyncStorage'
 import railsApi from '../apis/railsApi'
+import {notificationAtom} from './notificationAtom'
 
 const temp = {
   id: '',
@@ -35,7 +36,7 @@ export const tryLocalSignin = atom(null, (_get, set) => {
 export const signin = atom(null, (get, set, tryUser) => {
   const {email, password, is_activated} = tryUser;
   const _email = email.toLowerCase();
-  // const notiData = get(notificationAtom);
+  const notiData = get(notificationAtom);
 
   set(authAtom, async () => {        
     try {      
@@ -54,19 +55,17 @@ export const signin = atom(null, (get, set, tryUser) => {
       return {...temp, ...user, signedIn: true, type: 'signin'}
             
     } catch (err) {
+      console.log(err)
       AsyncStorage.removeHeaderItems()
       // Mixpanel.track('Unsuccessful login', {email: _email});      
       // const notiDataId = (notiData.id ? notiData.id : 1) + 1;      
-      // set(notificationAtom, () => {
-      //   return {...notiData, 
-      //     id: notiDataId,
-      //     status: true, 
-      //     message: `Failed to Login`, 
-      //     description: "Email and Password are not matched.  Please try again",
-      //     redirect: false,
-      //     type: 'error'
-      //   }
-      // })    
+      set(notificationAtom, () => {
+        return {...notiData, 
+          createdTime: new Date(),
+          message: "Failed to login, please try again.",
+          status: true,
+        }
+      })
 
       return {...temp, signedIn: false, type: 'add_error'};
     }

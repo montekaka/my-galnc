@@ -4,22 +4,16 @@ import { signin} from '../jotais'
 import AuthForm from './AuthForm'
 
 const SignIn = () => {
-  const [tryUser, setTryUser] = useState({email: "", password: ""});
   const [, userSignIn] = useAtom(signin);
-
-  const onValuesChange = (values) => {
-    const keys = Object.keys(values);
-    const [name] = keys;
-    const value = values[name];
-    setTryUser({...tryUser, [name]: value});
-  }  
-  const onFinish = () => {
-    userSignIn(tryUser)
+ 
+  const onSubmit = (user) => {
+    userSignIn(user)
   }
 
   return (
     <div>
-      <AuthForm/>
+      <p>Login to Your Account</p>
+      <AuthForm onSubmit={onSubmit}/>
     </div>
   )
 }

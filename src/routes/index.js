@@ -12,7 +12,7 @@ import {SignIn} from '../auth'
 const MainRoutes = () => {
   return (
     <Switch>
-      <Route exact path="/" component={DemoPage} />
+      <Route exact path="/" component={DemoPage} />      
       <Route exact path="/signin" component={SignIn} />
       <Route exact path="/:id" component={ProfilePage} />      
     </Switch>
