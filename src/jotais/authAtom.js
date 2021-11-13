@@ -55,7 +55,7 @@ export const signin = atom(null, (get, set, tryUser) => {
       return {...temp, ...user, signedIn: true, type: 'signin'}
             
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       AsyncStorage.removeHeaderItems()
       // Mixpanel.track('Unsuccessful login', {email: _email});      
       // const notiDataId = (notiData.id ? notiData.id : 1) + 1;      

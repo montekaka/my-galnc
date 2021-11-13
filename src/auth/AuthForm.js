@@ -5,10 +5,10 @@ const AuthForm = ({onSubmit}) => {
   const handleSubmit = (values) => {
     onSubmit(values);
   }
-
+// values => handleSubmit(values)
   return (
-    <Form onSubmit={values => handleSubmit(values)} style={{width: 340}}>
-        {() => (
+    <Form onSubmit={handleSubmit} style={{width: 340}}>
+        {({formState, values, formApi}) => (
             <>
                 <Form.Input field='email' label='Email Address' style={{ width: '100%' }} placeholder='Enter your email address'></Form.Input>
                 <Form.Input mode="password" field='password' label='Password' style={{ width: '100%' }} placeholder='Enter your password'></Form.Input>                

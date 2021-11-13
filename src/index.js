@@ -12,7 +12,7 @@ const history = createBrowserHistory();
 ReactDOM.render(
   <React.StrictMode>
     <Router history={history} ref={() => {setNavigator(history)} }>
-      <Suspense fallback={<h2>Loading...</h2>}>
+      <Suspense fallback={<></>}>
         <App />
       </Suspense>
     </Router>    
