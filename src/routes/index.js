@@ -6,8 +6,9 @@ import {
   Link
 } from "react-router-dom";
 import AuthRoute from './AuthRoute'
+import AuthedRoute from './AuthedRoute'
 
-import {DemoPage, ProfilePage} from '../screens'
+import {DemoPage, ProfilePage, Home} from '../screens'
 import {SignIn} from '../auth'
 
 const MainRoutes = () => {
@@ -15,7 +16,8 @@ const MainRoutes = () => {
     <Switch>
       <Route exact path="/" component={DemoPage} />      
       <AuthRoute exact path="/signin" component={SignIn} />
-      <Route exact path="/:id" component={ProfilePage} />            
+      <AuthedRoute exact path="/dashboard" component={Home}/>
+      <Route exact path="/:id" component={ProfilePage} />       
     </Switch>
   )
 }
