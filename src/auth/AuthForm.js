@@ -3,7 +3,9 @@ import { Form, Button, Toast  } from '@douyinfe/semi-ui';
 
 const AuthForm = ({onSubmit}) => {
   const handleSubmit = (values) => {
-    onSubmit(values);
+    const {email, password} = values;
+
+    onSubmit({email: email.trim().toLowerCase(), password});
   }
 // values => handleSubmit(values)
   return (
