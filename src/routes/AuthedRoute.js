@@ -17,18 +17,19 @@ const AuthedRoute = ({ component: Component, ...rest }) => {
     trylocalSignIn()
   }, [])
 
-
   if(authUser.signedIn === undefined) {
     return null;
   } else if (authUser.signedIn === true) { 
     return (
       <Route {...rest} render={(props) => (
-        <Layout>
+        <Layout style={{border: 'var(--semi-color-border)', minHeight: "100vh"}}>
           <Header style={{backgroundColor: 'var(--semi-color-bg-1)'}}>
             <HeaderMenus/>
           </Header>
           <Content
             style={{
+              backgroundColor: 'var(--semi-color-bg-0)',
+              color: 'var(--semi-color-text-0)',
               padding: '32px'
             }}         
           >
