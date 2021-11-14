@@ -15,6 +15,11 @@ const AuthedRoute = ({ component: Component, ...rest }) => {
   // if login, then redirect to main page
   useEffect(() => {
     trylocalSignIn()
+    const darkMode = localStorage.getItem('theme-mode');
+    if(darkMode) {
+      const body = document.body;
+      body.setAttribute('theme-mode', 'dark');
+    }
   }, [])
 
   if(authUser.signedIn === undefined) {

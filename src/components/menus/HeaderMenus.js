@@ -12,9 +12,11 @@ const HeaderMenus = () => {
     const body = document.body;
     if (body.hasAttribute('theme-mode')) {
       body.removeAttribute('theme-mode');
+      localStorage.removeItem('theme-mode');
     } else {
       body.setAttribute('theme-mode', 'dark');
-    }
+      localStorage.setItem('theme-mode', 'dark');
+    }    
   }
 
   return (

@@ -10,12 +10,14 @@ AsyncStorage.setHeaderItems = (headers) => {
   const expiry = headers['expiry']
   const tokenType = headers['token-type']
   const uid = headers['uid']
+  // const themeMode = headers['themeMode'];
 
   localStorage.setItem('access-token', accessToken)
   localStorage.setItem('client', client)
   localStorage.setItem('expiry', expiry)
   localStorage.setItem('token-type', tokenType)
   localStorage.setItem('uid', uid)
+  // localStorage.setItem('theme-mode', themeMode)
 
   updateHeaderCommons({accessToken, client, expiry, tokenType, uid})
 }
