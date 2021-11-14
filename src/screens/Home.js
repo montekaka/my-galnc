@@ -1,11 +1,11 @@
 import React from "react";
+import {CreateProfile} from '../components'
 
 // https://en.gravatar.com/
 const Home = () => {
   return (
     <div>
-      
-      <h2>Welcome...</h2>
+      <CreateProfile/>
     </div>
   )
 }
