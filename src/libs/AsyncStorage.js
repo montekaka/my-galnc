@@ -45,7 +45,12 @@ AsyncStorage.removeHeaderAuthItems = () => {
   localStorage.removeItem('client')
   localStorage.removeItem('expiry')
   localStorage.removeItem('token-type')
-  localStorage.removeItem('uid')  
+  localStorage.removeItem('uid')
+  localStorage.removeItem('theme-mode');
+  const body = document.body;
+  if (body.hasAttribute('theme-mode')) {
+    body.removeAttribute('theme-mode');
+  } 
 }
 
 AsyncStorage.setRequestHeaderItem = (key, value) => {
