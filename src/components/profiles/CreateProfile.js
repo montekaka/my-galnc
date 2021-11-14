@@ -28,6 +28,10 @@ const CreateProfile = () => {
   const onProfileChange = (v) => {
     setProfile(v);
   }
+
+  const nextStep = () => {
+    setCurrentStep(currentStep+1);
+  }
   
   return (
     <div>
@@ -41,6 +45,7 @@ const CreateProfile = () => {
         <ProfileForm 
           name={profile.name}
           onChange={onProfileChange}
+          nextStep={nextStep}
         />
       </div>     
     </div>
