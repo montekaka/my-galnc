@@ -42,11 +42,20 @@ const CreateProfile = () => {
         ))}
       </Steps> 
       <div className="steps-content" style={{ marginTop: 4, marginBottom: 4 }}>
-        <ProfileForm 
-          name={profile.name}
-          onChange={onProfileChange}
-          nextStep={nextStep}
-        />
+        {
+          currentStep === 0 && <ProfileForm 
+            name={profile.name}
+            onChange={onProfileChange}
+            nextStep={nextStep}
+          >
+            <Row type="flex" justify="center">
+              <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                <Button block theme="solid" type="primary" onClick={nextStep}>Next</Button>      
+              </Col>
+            </Row>  
+          </ProfileForm>
+        }
+
       </div>     
     </div>
   )

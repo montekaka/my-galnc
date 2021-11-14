@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import { Form, Input, Col, Row, Steps, Button } from '@douyinfe/semi-ui';
 
-const ProfileForm = ({name, short_description, onChange, nextStep}) => {
+const ProfileForm = (props) => {
+  const {name, short_description, onChange} = props;
   return (    
       <Form
         initValues={{name, short_description}} 
@@ -21,12 +22,10 @@ const ProfileForm = ({name, short_description, onChange, nextStep}) => {
           <Col xs={24} sm={24} md={12} lg={12} xl={12}>
             <Form.Input field='short_description' label="Short description" />
           </Col>
-        </Row>  
-        <Row type="flex" justify="center">
-          <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-            <Button block theme="solid" type="primary" onClick={nextStep}>Next</Button>      
-          </Col>
-        </Row>        
+        </Row>
+        {
+          props.children
+        }        
       </Form>
     
   )
