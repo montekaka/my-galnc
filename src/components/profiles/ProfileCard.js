@@ -1,10 +1,13 @@
 import React from "react";
+import { useAtom } from "jotai"; 
 import { Card, Avatar, Space, Button, Typography } from '@douyinfe/semi-ui';
+import {deleteProfileAtom} from '../../jotais'
 
 const ProfileCard = (props) => {
   const { Meta } = Card;
   const { Text } = Typography;
-  const {name, short_description} = props;
+  const {name, short_description, id} = props;
+  const [_, deleteProfile] = useAtom(deleteProfileAtom);
 
   return (
     <Card
@@ -20,15 +23,17 @@ const ProfileCard = (props) => {
       }
       headerExtraContent={
         <Text link>
-          Preview
+          Edit
         </Text>
       }
       footerLine={ true }
       footerStyle={{ display: 'flex', justifyContent: 'flex-end' }}
       footer={
         <Space>          
-          <Button theme='solid' type='danger'>Delete</Button>
-          <Button theme='borderless' type='primary'>Edit</Button>
+          <Button theme='borderless' type='danger' onClick={() => {
+            deleteProfile(id)
+          }}>Delete</Button>
+          <Button theme='solid' type='primary'>Preview</Button>
         </Space>
       }
     >

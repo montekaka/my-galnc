@@ -1,5 +1,4 @@
 import { atom } from "jotai";
-import AsyncStorage from '../libs/AsyncStorage'
 import railsApi from '../apis/railsApi'
 import {notificationAtom} from './notificationAtom'
 
@@ -30,4 +29,53 @@ export const fetchProfilesAtom = atom((get) => {
     }
   })
 
+})
+
+
+export const deleteProfileAtom = atom(null, (get, set, deleteId) => {
+
+  const currentState = get(profilesAtom);
+  const notiData = get(notificationAtom);
+
+  set(profilesAtom,  () => {
+    set(notificationAtom, () => {
+      return {...notiData, 
+        createdTime: new Date(),
+        message: "Deleted profile",
+        status: true,
+      }
+    })
+
+    const _copy = currentState.filter((x, id) => {
+      return x.id !== deleteId
+    }); 
+
+    return _copy;
+
+    // try {
+    //   const res = await railsApi.delete(`/v1/profiles/${id}`);
+    //   set(notificationAtom, () => {
+    //     return {...notiData, 
+    //       createdTime: new Date(),
+    //       message: "Deleted profile",
+    //       status: true,
+    //     }
+    //   })
+
+    //   const _copy = currentState.filter((x, id) => {
+    //     return id !== deleteId
+    //   });
+
+    //   return _copy;
+    // } catch {      
+    //   set(notificationAtom, () => {
+    //     return {...notiData, 
+    //       createdTime: new Date(),
+    //       message: "Failed to deleted profile",
+    //       status: true,
+    //     }
+    //   })      
+    //   return currentState;
+    // }
+  })
 })

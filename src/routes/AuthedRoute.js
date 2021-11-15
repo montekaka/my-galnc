@@ -1,13 +1,14 @@
 import React, { useEffect} from "react";
 import { Route, Redirect } from 'react-router-dom'
 import { useAtom } from 'jotai';
-import { authAtom, tryLocalSignin, fetchProfilesAtom } from '../jotais'
-import { Layout } from '@douyinfe/semi-ui';
+import { authAtom, tryLocalSignin, fetchProfilesAtom, notificationAtom } from '../jotais'
+import { Toast, Layout } from '@douyinfe/semi-ui';
 import {HeaderMenus} from './../components'
 
 const AuthedRoute = ({ component: Component, ...rest }) => {
   // const {state, tryLocalSignin} = useContext(AuthContext)
   const [authUser] = useAtom(authAtom);
+  const [notification] = useAtom(notificationAtom)
   const [profiles, fetchProfiles] = useAtom(fetchProfilesAtom);
   const [, trylocalSignIn] = useAtom(tryLocalSignin);
   const { Header, Footer, Content } = Layout;
@@ -22,6 +23,13 @@ const AuthedRoute = ({ component: Component, ...rest }) => {
       body.setAttribute('theme-mode', 'dark');
     }
   }, [])
+
+  // toast message
+  useEffect(() => {
+    if(notification && notification.createdTime) {
+      Toast.info(notification.message);
+    }
+  }, [notification.createdTime])  
 
   // fetch profiles
   useEffect(() => {
