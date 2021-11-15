@@ -81,9 +81,9 @@ const CreateProfile = () => {
               return (
                 <>
                   <ProfileForm/>
-                  <Row type="flex" justify="center">
+                  <Row type="flex" justify="center" style={{marginTop: "10px"}}>
                     <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-                      <Button block theme="solid" type="primary" onClick={() => {
+                      <Button block type="warning" onClick={() => {
                         profileNext(values)
                       }}>Next</Button>      
                     </Col>
@@ -102,7 +102,7 @@ const CreateProfile = () => {
           >
             <Row type="flex" justify="center">
               <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-                <Button block theme="solid" type="primary" onClick={nextStep}>Next</Button>      
+                <Button block type="warning" onClick={nextStep}>Next</Button>      
               </Col>            
             </Row>  
           </SocialNetworks>

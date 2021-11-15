@@ -25,7 +25,7 @@ const SocialNetworks = (props) => {
     <div style={{paddingTop: 40}}>
       <Row type="flex" justify="center" style={{marginBottom: '20px'}}>
         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-          <Button block type="warning" onClick={hanleAddNewItem}>New Link</Button>      
+          <Button block theme="solid"  type="primary" onClick={hanleAddNewItem}>New Link</Button>      
         </Col>            
       </Row>
       {
