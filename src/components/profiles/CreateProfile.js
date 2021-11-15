@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { Form, Col, Row, Steps, Button, useFormApi} from '@douyinfe/semi-ui';
 import ProfileForm from './ProfileForm'
 import SocialNetworks from './SocialNetworks'
+import TechSkillsPicker from './TechSkillsPicker'
 
 const steps = [
   {
@@ -22,15 +23,18 @@ const CreateProfile = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const { Step } = Steps;
   const [profile, setProfile] = useState(null)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setProfile({
-      name: "Josh",
+      name: null,
       short_description: null
     })
   }, [])
 
   const [socialNetworks, setSocialNetworks] = useState([]);
+  const [techSkills, setTechSkills] = useState([]);
+  const [selectedSkills, setSelectedSkills] = useState([])
 
   const profileNext = (values) => {
     setProfile({...values});
@@ -58,12 +62,40 @@ const CreateProfile = () => {
     setSocialNetworks(_copy);
   }
 
+  const updateSkills = (skills, newTechSkills) => {
+    const dicts = {};
+    const newSkills = []
+
+    for(let i = 0; i < techSkills.length; i++) {
+      const techSkill = techSkills[i];
+      const key = techSkill['icon_name'];
+      dicts[key] = techSkill;
+    }
+
+    for(let i = 0; i < newTechSkills.length; i++) {
+      const newTechSkill = newTechSkills[i];
+      const key = newTechSkill['icon_name'];      
+      if(dicts[key]) {
+        const existingSkill = {...dicts[key]};
+        newSkills.push(existingSkill)
+      } else {
+        newSkills.push(newTechSkill)
+      }      
+    }
+
+    setTechSkills(newSkills)
+    setSelectedSkills(skills)
+  }
+
+  const saveClick = () => {
+    console.log('hi')
+  }
+
   if(profile === null) return null;
 
   return (
     <div>
       <h2>New Profile</h2>
-      <p>{profile.name}</p>
       <Steps type="basic" current={currentStep}>
         {steps.map((item, idx) => (
             <Step key={item.title} title={item.title} description={item.description} onClick={() => {
@@ -71,7 +103,7 @@ const CreateProfile = () => {
             }} />
         ))}
       </Steps> 
-      <div className="steps-content" style={{ marginTop: 4, marginBottom: 4 }}>
+      <div className="steps-content" style={{ marginTop: 40, marginBottom: 4 }}>
         {
           currentStep === 0 && <Form
           style={{width: '100%'}}
@@ -106,6 +138,24 @@ const CreateProfile = () => {
               </Col>            
             </Row>  
           </SocialNetworks>
+        }
+        {
+          currentStep === 2 && <TechSkillsPicker 
+          items={selectedSkills}
+          updateSkills={updateSkills}
+          >
+            <Row type="flex" justify="center" style={{marginTop: '20px'}}>
+              <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                <Button 
+                  loading={loading}
+                  disabled={profile.name === null ? true : false}
+                  block 
+                  theme="solid" 
+                  type="primary" 
+                  onClick={saveClick}>Save</Button>      
+              </Col>            
+            </Row>  
+          </TechSkillsPicker>          
         }
       </div>     
     </div>
