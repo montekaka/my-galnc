@@ -40,10 +40,9 @@ const CreateProfile = () => {
     setSocialNetworks([...socialNetworks, network]);
   }
 
-  const updateSocialNetworkLink = (v) => {
+  const updateSocialNetworkLink = (idx, updatedData) => {
     const _copy = [...socialNetworks];
-    const {idx, url} = v;
-    _copy[idx]['url'] = url;
+    _copy[idx] = {..._copy[idx], ...updatedData}
     setSocialNetworks(_copy)
   }
 
@@ -79,8 +78,6 @@ const CreateProfile = () => {
           </ProfileForm>
         }
         {
-
-
           currentStep === 1 && <SocialNetworks 
             items={socialNetworks}
             addNewItem={addSocialNetworkLink}
