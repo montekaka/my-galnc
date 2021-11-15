@@ -1,6 +1,7 @@
 import {themeAtom, updateThemeAtom} from './themeAtom'
 import {authAtom, tryLocalSignin, signout, signin} from './authAtom'
 import {notificationAtom, updateNotificationAtom} from './notificationAtom'
+import {fetchProfilesAtom, profilesAtom, loadingProfilesAtom} from './profileAtom'
 
 export {
   themeAtom,
@@ -10,5 +11,8 @@ export {
   signout, 
   signin,
   notificationAtom,
-  updateNotificationAtom
+  updateNotificationAtom,
+  profilesAtom, 
+  loadingProfilesAtom,
+  fetchProfilesAtom
 }
