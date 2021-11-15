@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {useAtom} from 'jotai'
 import { Dropdown, Toast, Nav, Button, Breadcrumb, Skeleton, Avatar } from '@douyinfe/semi-ui';
-import { IconHome, IconHelpCircle } from '@douyinfe/semi-icons';
+import { IconHome, IconHelpCircle, IconUserAdd } from '@douyinfe/semi-icons';
 import {authAtom, signout} from '../../jotais'
 
 const HeaderMenus = () => {
@@ -27,7 +28,8 @@ const HeaderMenus = () => {
           text: 'MyGlance'
         }}      
       >
-        <Nav.Item itemKey='Home' text='Home' icon={<IconHome size="large" />} />
+        <Link to="/" style={{ textDecoration: 'none' }}><Nav.Item itemKey='home' text='Home' icon={<IconHome size="large" />} /></Link>
+        <Link to="/new-profile" style={{ textDecoration: 'none' }}><Nav.Item itemKey='newprofile' text='New Profile' icon={<IconUserAdd size="large" />} /></Link>
         <Nav.Footer>  
         <Button
             theme="borderless"

@@ -8,15 +8,17 @@ import {
 import AuthRoute from './AuthRoute'
 import AuthedRoute from './AuthedRoute'
 
-import {DemoPage, ProfilePage, Home} from '../screens'
+import {DemoPage, ProfilePage, Home, ProfileNew} from '../screens'
 import {SignIn} from '../auth'
 
 const MainRoutes = () => {
   return (
     <Switch>
-      <Route exact path="/" component={DemoPage} />      
+      {/* <Route exact path="/" component={DemoPage} />       */}
+      <AuthedRoute exact path="/" component={Home} />      
       <AuthRoute exact path="/signin" component={SignIn} />
       <AuthedRoute exact path="/dashboard" component={Home}/>
+      <AuthedRoute exact path="/new-profile" component={ProfileNew}/>
       <Route exact path="/:id" component={ProfilePage} />       
     </Switch>
   )

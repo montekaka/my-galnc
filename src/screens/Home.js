@@ -1,5 +1,5 @@
-import { useAtom } from "jotai";
 import React from "react";
+import { useAtom } from "jotai";
 import {CreateProfile, ProfileCard} from '../components'
 import {profilesAtom, loadingProfilesAtom} from '../jotais'
 
