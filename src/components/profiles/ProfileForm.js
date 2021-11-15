@@ -1,12 +1,12 @@
-import React, {useState} from "react";
-import { Form, Input, Col, Row, Steps, Button } from '@douyinfe/semi-ui';
+import React from "react";
+import { Form, Col, Row} from '@douyinfe/semi-ui';
 
 const ProfileForm = (props) => {
   const {name, short_description, onChange} = props;
   return (    
       <Form
         initValues={{name, short_description}} 
-        style={{ padding: 10, width: '100%'}}        
+        style={{ padding: 10, width: '100%'}}
         onValueChange={onChange}
       >
         <Row type="flex" justify="center">
