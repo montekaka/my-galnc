@@ -1,17 +1,14 @@
 import React from "react";
 import { Form, Col, Row} from '@douyinfe/semi-ui';
 
-const ProfileForm = (props) => {
-  const {name, short_description, onChange} = props;
-  return (    
-      <Form
-        initValues={{name, short_description}} 
-        style={{ padding: 10, width: '100%'}}
-        onValueChange={onChange}
-      >
+const ProfileForm = () => {  
+  return (  
+    <>  
         <Row type="flex" justify="center">
           <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-            <Form.Input field='name' label="Name" trigger='blur'
+            <Form.Input 
+              field='name' 
+              label="Name"
               rules={[
                 { required: true, message: 'Cannot be empty' },
             ]}        
@@ -20,13 +17,12 @@ const ProfileForm = (props) => {
         </Row>
         <Row type="flex" justify="center">
           <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-            <Form.Input field='short_description' label="Short description" />
+            <Form.Input 
+              field='short_description' 
+              label="Short description" />
           </Col>
-        </Row>
-        {
-          props.children
-        }        
-      </Form>
+        </Row>             
+      </>
     
   )
 }
