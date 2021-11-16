@@ -1,5 +1,6 @@
 import React from "react";
 import { useAtom } from "jotai"; 
+import { Link } from 'react-router-dom'
 import { Card, Avatar, Space, Button, Typography } from '@douyinfe/semi-ui';
 import {deleteProfileAtom} from '../../jotais'
 
@@ -8,6 +9,11 @@ const ProfileCard = (props) => {
   const { Text } = Typography;
   const {name, short_description, id} = props;
   const [_, deleteProfile] = useAtom(deleteProfileAtom);
+
+  const openPreview = () => {
+    const url = `${process.env.REACT_APP_HOST}/${id}`;
+    window.open(url, "_blank");
+  }
 
   return (
     <Card
@@ -33,7 +39,7 @@ const ProfileCard = (props) => {
           <Button theme='borderless' type='danger' onClick={() => {
             deleteProfile(id)
           }}>Delete</Button>
-          <Button theme='solid' type='primary'>Preview</Button>
+          <Button theme='solid' type='primary' onClick={openPreview}>Preview</Button>
         </Space>
       }
     >
