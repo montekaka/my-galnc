@@ -7,7 +7,7 @@ import {ProfileCard, MyStacks} from 'glance-react-components'
 
 const ProfilePage = (props) => {
   const id = props.match.params.id;  
-  const [darkColor, profile, socialNetworks, techSkills, bodyWidgets, bannerWidgets, loading, errorMessage] = useFetchProfile(id);
+  const [profile, socialNetworks, techSkills, bodyWidgets, bannerWidgets, loading, errorMessage] = useFetchProfile(id);
   const [themes, setThemes] = useAtom(updateThemeAtom);
 
   useEffect(() => {
