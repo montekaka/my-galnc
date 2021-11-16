@@ -38,8 +38,8 @@ const ProfileCard = (props) => {
       }
     >
       <Space>
-        <Button theme='borderless' type='primary'>Add Social Links</Button>
-        <Button theme='borderless' type='primary'>Add Tech Skills</Button>        
+        <Button theme='borderless' type='primary'>Social Links</Button>
+        <Button theme='borderless' type='primary'>Tech Skills</Button>        
       </Space>
     </Card>
   )

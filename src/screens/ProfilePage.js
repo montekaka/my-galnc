@@ -29,7 +29,7 @@ const ProfilePage = (props) => {
   
   if(profile) {
     return (
-      <ProfileLayout backgroundColor={darkColor}>
+      <ProfileLayout backgroundColor={themes.danger_color}>
         <div className="col-1">
           <ProfileCard
             title={profile.name}
