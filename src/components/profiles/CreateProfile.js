@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from "react";
+import {useAtom} from 'jotai'
 import { Form, Col, Row, Steps, Button, useFormApi} from '@douyinfe/semi-ui';
 import ProfileForm from './ProfileForm'
 import SocialNetworks from './SocialNetworks'
 import TechSkillsPicker from './TechSkillsPicker'
+import {createProfileAtom} from '../../jotais'
 
 const steps = [
   {
@@ -24,6 +26,7 @@ const CreateProfile = () => {
   const { Step } = Steps;
   const [profile, setProfile] = useState(null)
   const [loading, setLoading] = useState(false);
+  const [_, createProfile] = useAtom(createProfileAtom);
 
   useEffect(() => {
     setProfile({
@@ -88,7 +91,11 @@ const CreateProfile = () => {
   }
 
   const saveClick = () => {
-    console.log('hi')
+    createProfile({
+      profile,
+      socialNetworks,
+      techSkills
+    })
   }
 
   if(profile === null) return null;

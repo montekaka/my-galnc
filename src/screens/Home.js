@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useAtom } from "jotai";
 import {CreateProfile, ProfileCard} from '../components'
-import {profilesAtom, loadingProfilesAtom} from '../jotais'
+import {fetchProfilesAtom, loadingProfilesAtom} from '../jotais'
 
 // https://en.gravatar.com/
 const Home = () => {
@@ -11,8 +11,12 @@ const Home = () => {
     backgroundColor: 'var(--semi-color-bg-2)',
   };
 
-  const [profiles] = useAtom(profilesAtom)
+  const [profiles, fetchProfiles] = useAtom(fetchProfilesAtom)
   const [loadingProfile] = useAtom(loadingProfilesAtom);
+
+  useEffect(() => {
+    fetchProfiles()
+  }, [])
 
   if(loadingProfile === false && profiles.length === 0) return <CreateProfile/>;
 

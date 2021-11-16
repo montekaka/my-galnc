@@ -32,11 +32,11 @@ const AuthedRoute = ({ component: Component, ...rest }) => {
   }, [notification.createdTime])  
 
   // fetch profiles
-  useEffect(() => {
-    if(authUser.signedIn === true && profiles.length === 0) {
-      fetchProfiles()
-    }
-  }, [authUser])
+  // useEffect(() => {
+  //   if(authUser.signedIn === true && profiles.length === 0) {
+  //     fetchProfiles()
+  //   }
+  // }, [authUser])
 
   if(authUser.signedIn === undefined) {
     return null;

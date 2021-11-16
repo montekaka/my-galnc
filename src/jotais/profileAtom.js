@@ -12,22 +12,59 @@ export const fetchProfilesAtom = atom((get) => {
     return true;
   })
 
-  set(profilesAtom, async () => {
-    try {
-      const res = await railsApi.get('/v1/profiles');
-      set(loadingProfilesAtom, () => {
-        return false;
-      })
-
+  // use promoise here so that we can by pass the suspect refresh issue
+  railsApi.get('/v1/profiles')
+  .then((res) => {
+    set(profilesAtom, () => {
       return res.data;
-    } catch {
+    })
+    set(loadingProfilesAtom, () => {
+      return false;
+    })    
+  })
+  .catch((err) => {
       set(loadingProfilesAtom, () => {
         return false;
       })
       
-      return [];
+      return [];    
+  })
+})
+
+export const createProfileAtom = atom(null, (get, set, data) => {
+  const currentState = get(profilesAtom);
+  const notiData = get(notificationAtom);
+  const {profile, socialNetworks, techSkills} = data;
+
+  set(profilesAtom, async () => {
+    try {
+      const res = await railsApi.post(`/v1/profiles`, profile)
+      const id = res.data.id;
+      await railsApi.post(`/v1/profiles/${id}/sync_social_networks`, {items: socialNetworks});
+      await railsApi.post(`/v1/profiles/${id}/sync_tech_skills`, {items: techSkills});
+  
+      set(notificationAtom, () => {
+        return {...notiData, 
+          createdTime: new Date(),
+          message: "Created profile",
+          status: true,
+        }
+      })
+  
+      return [...currentState, res.data];
+    } catch {
+      set(notificationAtom, () => {
+        return {...notiData, 
+          createdTime: new Date(),
+          message: "Failed to create profile",
+          status: true,
+        }
+      })
+  
+      return currentState;
     }
   })
+      
 
 })
 
