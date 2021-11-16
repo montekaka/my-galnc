@@ -11,23 +11,26 @@ const ProfilePage = (props) => {
   const [themes, setThemes] = useAtom(updateThemeAtom);
 
   useEffect(() => {
-    if(profile && profile.primary_color) {
-      const {
-        primary_color, secondary_color, success_color, danger_color,
-        warning_color, info_color, light_color, dark_color,
-        font_family
-      } = profile;
-
-      setThemes({primary_color, secondary_color, success_color, danger_color,
-        warning_color, info_color, light_color, dark_color,
-        font_family})
+    if(profile) {
+      if(profile.primary_color) {
+        const {
+          primary_color, secondary_color, success_color, danger_color,
+          warning_color, info_color, light_color, dark_color,
+          font_family
+        } = profile;
+  
+        setThemes({primary_color, secondary_color, success_color, danger_color,
+          warning_color, info_color, light_color, dark_color,
+          font_family})
+      }
     }
   }, [profile])
-
+  
   if(loading) return null;
   if(errorMessage) return (<h2>{errorMessage}</h2>);
   
   if(profile) {
+    
     return (
       <ProfileLayout backgroundColor={themes.danger_color}>
         <div className="col-1">

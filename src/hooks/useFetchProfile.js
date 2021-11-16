@@ -18,8 +18,10 @@ const useFetchProfile = (slug) => {
 
       axios.get((`${process.env.REACT_APP_RAILS}/v1/public_profiles/${slug}`))
       .then((res) => {
+        
         setLoading(false);
         const {profile, social_networks, tech_skills, body_widgets, banner_widgets} = res.data;
+        
         setDarkColor(profile.dark_color);
         setProfile(profile);
         setSocialNetworks(social_networks)
@@ -35,7 +37,7 @@ const useFetchProfile = (slug) => {
     }
   }, [slug])
 
-  return [darkColor, profile, socialNetworks, techSkills, bodyWidgets, bannerWidgets, loading, errorMessage];
+  return [profile, socialNetworks, techSkills, bodyWidgets, bannerWidgets, loading, errorMessage];
 }
 
 export default useFetchProfile;

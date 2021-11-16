@@ -19,7 +19,7 @@ const MainRoutes = () => {
       <AuthRoute exact path="/signin" component={SignIn} />
       <AuthedRoute exact path="/dashboard" component={Home}/>
       <AuthedRoute exact path="/new-profile" component={ProfileNew}/>
-      <AuthedRoute exact path="/:id/profile" component={ProfileEdit} />
+      <AuthedRoute exact path="/profile/:id" component={ProfileEdit} />
       <Route exact path="/:id" component={ProfilePage} />
     </Switch>
   )

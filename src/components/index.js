@@ -1,12 +1,13 @@
 import {ProfileLayout} from './layouts'
 import {Widget} from './widgets'
 import {HeaderMenus} from './menus'
-import {CreateProfile, ProfileCard} from './profiles'
+import {CreateProfile, ProfileCard, EditProfile} from './profiles'
 
 export {
   ProfileLayout,
   Widget,
   HeaderMenus,
   CreateProfile,
-  ProfileCard
+  ProfileCard,
+  EditProfile
 }

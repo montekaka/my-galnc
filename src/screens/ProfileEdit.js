@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { useAtom } from "jotai";
-import {CreateProfile} from '../components'
+import {EditProfile} from '../components'
 import {fetchProfilesAtom, loadingProfilesAtom} from '../jotais'
 
 const ProfilEdit = (props) => {
@@ -29,7 +29,11 @@ const ProfilEdit = (props) => {
 
   if(profile) {
     return (
-      <div>Hello</div>
+      <EditProfile 
+        id={profile.id}
+        name={profile.name}
+        short_description={profile.short_description}
+      />
     )
   }
 

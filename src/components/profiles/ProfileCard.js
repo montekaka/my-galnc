@@ -28,9 +28,7 @@ const ProfileCard = (props) => {
         />
       }
       headerExtraContent={
-        <Text link>
-          Edit
-        </Text>
+        <Link to={`/profile/${id}`} style={{ textDecoration: 'none' }}><Button theme='borderless' type='primary'>Edit</Button></Link>
       }
       footerLine={ true }
       footerStyle={{ display: 'flex', justifyContent: 'flex-end' }}
