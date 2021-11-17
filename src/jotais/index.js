@@ -6,7 +6,8 @@ import {
   profilesAtom, 
   loadingProfilesAtom, 
   deleteProfileAtom,
-  createProfileAtom
+  createProfileAtom,
+  updateProfileAtom
 } from './profileAtom'
 
 export {
@@ -22,5 +23,6 @@ export {
   loadingProfilesAtom,
   fetchProfilesAtom,
   deleteProfileAtom,
-  createProfileAtom
+  createProfileAtom,
+  updateProfileAtom
 }

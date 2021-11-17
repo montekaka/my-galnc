@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from "react";
-import {useAtom} from 'jotai'
+import React from "react";
 import { Form, Col, Row, Steps, Button, useFormApi} from '@douyinfe/semi-ui';
 import ProfileForm from './ProfileForm'
 
 const EditProfile = (props) => {
-  const {id, name, short_description} = props;
+  const {name, short_description, onClick} = props;
 
   return (
     <div>
@@ -18,6 +17,13 @@ const EditProfile = (props) => {
           return (
             <>
               <ProfileForm/>
+              <Row type="flex" justify="center" style={{marginTop: "10px"}}>
+                <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                  <Button block type="warning" onClick={() => {
+                    onClick(values)
+                  }}>Save</Button>      
+                </Col>
+              </Row>
               {props.children}
             </>
           )

@@ -94,11 +94,54 @@ export const deleteProfileAtom = atom(null, (get, set, deleteId) => {
       set(notificationAtom, () => {
         return {...notiData, 
           createdTime: new Date(),
-          message: "Failed to deleted profile",
+          message: "Failed to delete profile",
           status: true,
         }
       })      
       return currentState;
     }
+  })
+})
+
+export const updateProfileAtom = atom(null, (get, set, data) => {
+  const currentState = get(profilesAtom);
+  const notiData = get(notificationAtom);
+  const {id, values} = data;
+
+  console.log(values)
+  railsApi.put(`/v1/profiles/${id}`, values)
+  .then((res) => {
+    set(notificationAtom, () => {
+      return {...notiData, 
+        createdTime: new Date(),
+        message: "Updated profile",
+        status: true,
+      }
+    })
+
+    set(profilesAtom, () => {
+      const _copy = [...currentState];
+      const idx = _copy.findIndex((x) => x.id.toString() === id);
+      _copy[idx] = res.data;
+  
+      return _copy;
+    })
+
+
+  })
+  .catch((err) => {
+    
+    set(notificationAtom, () => {
+      return {...notiData, 
+        createdTime: new Date(),
+        message: "Failed to update profile",
+        status: true,
+      }
+    }) 
+    
+    set(profilesAtom, () => {  
+      return currentState;
+    })    
+    
   })
 })
