@@ -18,5 +18,12 @@ export const updateNotificationAtom = atom((get) => {
   const currentState = _get(notificationAtom);
   set(notificationAtom, () => {
     return {...currentState, ...data};
-  })  
+  })
+
+  setTimeout(() => {
+    set(notificationAtom, () => {
+      return {...currentState, status: false, createdTime: new Date()};
+    }) 
+  }, 3000)
+ 
 })

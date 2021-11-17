@@ -51,6 +51,12 @@ export const createProfileAtom = atom(null, (get, set, data) => {
         }
       })
   
+      setTimeout(() => {        
+        set(notificationAtom, () => {
+          return {...notiData, createdTime: new Date(), status: false};
+        }) 
+      }, 3000)
+ 
       return [...currentState, res.data];
     } catch {
       set(notificationAtom, () => {
@@ -60,6 +66,12 @@ export const createProfileAtom = atom(null, (get, set, data) => {
           status: true,
         }
       })
+
+      setTimeout(() => {        
+        set(notificationAtom, () => {
+          return {...notiData, createdTime: new Date(), status: false};
+        }) 
+      }, 3000)      
   
       return currentState;
     }
@@ -84,7 +96,11 @@ export const deleteProfileAtom = atom(null, (get, set, deleteId) => {
           status: true,
         }
       })
-
+      setTimeout(() => {        
+        set(notificationAtom, () => {
+          return {...notiData, createdTime: new Date(), status: false};
+        }) 
+      }, 3000) 
       const _copy = currentState.filter((x, id) => {
         return x.id !== deleteId
       });
@@ -97,7 +113,12 @@ export const deleteProfileAtom = atom(null, (get, set, deleteId) => {
           message: "Failed to delete profile",
           status: true,
         }
-      })      
+      })   
+      setTimeout(() => {        
+        set(notificationAtom, () => {
+          return {...notiData, createdTime: new Date(), status: false};
+        }) 
+      }, 3000)          
       return currentState;
     }
   })
@@ -118,6 +139,12 @@ export const updateProfileAtom = atom(null, (get, set, data) => {
       }
     })
 
+    setTimeout(() => {        
+      set(notificationAtom, () => {        
+        return {...notiData, createdTime: new Date(), status: false};
+      }) 
+    }, 3000)    
+
     set(profilesAtom, () => {
       const _copy = [...currentState];
       const idx = _copy.findIndex((x) => x.id.toString() === id);
@@ -137,6 +164,12 @@ export const updateProfileAtom = atom(null, (get, set, data) => {
         status: true,
       }
     }) 
+
+    setTimeout(() => {        
+      set(notificationAtom, () => {
+        return {...notiData, createdTime: new Date(), status: false};
+      }) 
+    }, 3000)    
     
     set(profilesAtom, () => {  
       return currentState;

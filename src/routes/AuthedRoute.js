@@ -26,7 +26,7 @@ const AuthedRoute = ({ component: Component, ...rest }) => {
 
   // toast message
   useEffect(() => {
-    if(notification && notification.createdTime) {
+    if(notification && notification.createdTime && notification.status) {
       Toast.info(notification.message);
     }
   }, [notification.createdTime])  

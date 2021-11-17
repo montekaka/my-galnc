@@ -67,6 +67,12 @@ export const signin = atom(null, (get, set, tryUser) => {
         }
       })
 
+      setTimeout(() => {        
+        set(notificationAtom, () => {
+          return {...notiData, createdTime: new Date(), status: false};
+        }) 
+      }, 3000)
+
       return {...temp, signedIn: false, type: 'add_error'};
     }
   })
