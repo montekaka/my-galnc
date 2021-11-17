@@ -3,8 +3,9 @@ import {railsApi} from '../apis';
 import { useAtom } from "jotai";
 import {updateNotificationAtom} from '../jotais'
 
-const useFetchSocialNetworks = (id) => {
+const useFetchTechSkills = (id) => {
   const [items, setItems] = useState([]);
+  const [techSkills, setTechSkills] = useState([]);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [_, updateNotification] = useAtom(updateNotificationAtom)
@@ -12,9 +13,11 @@ const useFetchSocialNetworks = (id) => {
   useEffect(() => {
     setLoading(true);
 
-    railsApi.get(`/v1/profiles/${id}/social_networks`)
-    .then((res) => {
-      setItems(res.data);
+    railsApi.get(`/v1/profiles/${id}/tech_skills`)
+    .then((res) => {      
+      const skills = res.data.map((x) => x.icon_name);
+      setItems(skills);
+      setTechSkills(res.data)
       setLoading(false);
     })
     .catch((err) => {
@@ -23,19 +26,21 @@ const useFetchSocialNetworks = (id) => {
   }, [])
 
   const updateItems = (id, items) => {
-    railsApi.post(`/v1/profiles/${id}/sync_social_networks`, {items})
+    railsApi.post(`/v1/profiles/${id}/sync_tech_skills`, {items})
     .then((res) => {
-      setItems(res.data);
+      const skills = res.data.map((x) => x.icon_name);
+      setItems(skills);
+      setTechSkills(res.data)
       updateNotification({
         createdTime: new Date(),
-        message: "Updated social links",
+        message: "Updated tech skills",
         status: true,
       })
     })
     .catch((err) => {
       updateNotification({
         createdTime: new Date(),
-        message: "Failed to update social links",
+        message: "Failed to update tech skills",
         status: true,
       })      
       console.log(err);
@@ -43,7 +48,7 @@ const useFetchSocialNetworks = (id) => {
   }
 
 
-  return [items, setItems, loading, updateItems]
+  return [items, setItems, loading, updateItems, techSkills, setTechSkills]
 }
 
-export default useFetchSocialNetworks;
+export default useFetchTechSkills;

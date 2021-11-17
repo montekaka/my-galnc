@@ -4,6 +4,7 @@ import Home from './Home'
 import ProfileNew from './ProfileNew'
 import ProfileEdit from './ProfileEdit'
 import ProfileSocialLinks from './ProfileSocialLinks'
+import ProfileTechSkills from './ProfileTechSkills'
 
 export {
   DemoPage,
@@ -11,5 +12,6 @@ export {
   ProfileNew,
   Home,
   ProfileEdit,
-  ProfileSocialLinks
+  ProfileSocialLinks,
+  ProfileTechSkills
 }
