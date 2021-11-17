@@ -107,8 +107,7 @@ export const updateProfileAtom = atom(null, (get, set, data) => {
   const currentState = get(profilesAtom);
   const notiData = get(notificationAtom);
   const {id, values} = data;
-
-  console.log(values)
+  
   railsApi.put(`/v1/profiles/${id}`, values)
   .then((res) => {
     set(notificationAtom, () => {

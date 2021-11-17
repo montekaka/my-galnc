@@ -1,7 +1,7 @@
 import {ProfileLayout} from './layouts'
 import {Widget} from './widgets'
 import {HeaderMenus} from './menus'
-import {CreateProfile, ProfileCard, EditProfile} from './profiles'
+import {CreateProfile, ProfileCard, EditProfile, SocialNetworks} from './profiles'
 
 export {
   ProfileLayout,
@@ -9,5 +9,6 @@ export {
   HeaderMenus,
   CreateProfile,
   ProfileCard,
-  EditProfile
+  EditProfile,
+  SocialNetworks
 }

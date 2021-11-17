@@ -5,7 +5,7 @@ import { Col, Row, Button} from '@douyinfe/semi-ui';
 import {EditProfile} from '../components'
 import {fetchProfilesAtom, loadingProfilesAtom, updateProfileAtom} from '../jotais'
 
-const ProfilEdit = (props) => {
+const ProfileEdit = (props) => {
   const id = props.match.params.id;  
   const [profiles, fetchProfiles] = useAtom(fetchProfilesAtom);
   const [loadingProfile] = useAtom(loadingProfilesAtom);
@@ -53,4 +53,4 @@ const ProfilEdit = (props) => {
   return null;
 }
 
-export default ProfilEdit;
+export default ProfileEdit;
