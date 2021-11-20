@@ -9,6 +9,13 @@ import {
   createProfileAtom,
   updateProfileAtom
 } from './profileAtom'
+import {
+  currentWidgetIdxAtom, 
+  widgetOptionsAtom,
+  widgetAtom,
+  initWidgetAtom,
+  initWidgetIdxAtom
+} from './widgetAtom'
 
 export {
   themeAtom,
@@ -24,5 +31,10 @@ export {
   fetchProfilesAtom,
   deleteProfileAtom,
   createProfileAtom,
-  updateProfileAtom
+  updateProfileAtom,
+  currentWidgetIdxAtom, 
+  widgetOptionsAtom,
+  widgetAtom,
+  initWidgetAtom,
+  initWidgetIdxAtom
 }

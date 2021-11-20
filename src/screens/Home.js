@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import { useAtom } from "jotai";
-import {CreateProfile, ProfileCard} from '../components'
+import {CreateProfile, ProfileCard, WidgetBuilder} from '../components'
 import {fetchProfilesAtom, loadingProfilesAtom} from '../jotais'
 
 // https://en.gravatar.com/
@@ -26,12 +26,15 @@ const Home = () => {
 
   return (
     <div className="grid">
+      <div>
       {
         profiles.map((profile) => {
           const {name, short_description, id} = profile;
           return <ProfileCard name={name} short_description={short_description} key={id} id={id}/>
         })
-      }      
+      }   
+      </div>
+      <WidgetBuilder/>   
     </div>
   )
 }

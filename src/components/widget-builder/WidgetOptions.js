@@ -1,0 +1,48 @@
+import React from "react";
+import { useAtom } from 'jotai';
+import { Tabs, TabPane, RadioGroup, Radio } from '@douyinfe/semi-ui';
+import { IconFile, IconGlobe, IconHelpCircle } from '@douyinfe/semi-icons';
+import {themeAtom, widgetOptionsAtom, initWidgetIdxAtom} from '../../jotais'
+import OptionForm from './OptionForm'
+
+const WidgetOptions = () => {
+
+  const [widgetOptions] = useAtom(widgetOptionsAtom);
+  const [widgetIdx, setWidgetIdx] = useAtom(initWidgetIdxAtom);
+
+  return (
+    <div>
+      <Tabs 
+        tabPosition="left" 
+        type="line"
+        onTabClick={(ak) => {
+          setWidgetIdx(Number(ak - 1));
+        }}
+      >               
+        {
+          widgetOptions.map((x) => {  
+            const {idx, name} = x;          
+            
+            return (
+              <TabPane
+                  tab={
+                      <span>
+                        {name}
+                      </span>
+                  }
+                  key={(idx+1).toString()}
+                  itemKey={(idx+1).toString()}
+              >
+                <div style={{ padding: '0 24px' }}>
+                    <h3>{name}</h3>
+                    <OptionForm/>
+                </div>
+              </TabPane>  
+          )})
+        }
+      </Tabs>
+    </div>
+  )
+}
+
+export default WidgetOptions;
