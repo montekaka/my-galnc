@@ -14,7 +14,10 @@ import {
   widgetOptionsAtom,
   widgetAtom,
   initWidgetAtom,
-  initWidgetIdxAtom
+  initWidgetIdxAtom,
+  setWidgetInputValueAtom,
+  widgetInputValueAtom,
+  updateWidgetFromInputAtom
 } from './widgetAtom'
 
 export {
@@ -36,5 +39,8 @@ export {
   widgetOptionsAtom,
   widgetAtom,
   initWidgetAtom,
-  initWidgetIdxAtom
+  initWidgetIdxAtom,
+  setWidgetInputValueAtom,
+  widgetInputValueAtom,
+  updateWidgetFromInputAtom
 }

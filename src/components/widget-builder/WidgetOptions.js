@@ -2,10 +2,10 @@ import React from "react";
 import { useAtom } from 'jotai';
 import { Tabs, TabPane, RadioGroup, Radio } from '@douyinfe/semi-ui';
 import { IconFile, IconGlobe, IconHelpCircle } from '@douyinfe/semi-icons';
-import {themeAtom, widgetOptionsAtom, initWidgetIdxAtom} from '../../jotais'
+import {themeAtom, widgetOptionsAtom, initWidgetIdxAtom, setWidgetInputValue} from '../../jotais'
 import OptionForm from './OptionForm'
 
-const WidgetOptions = () => {
+const WidgetOptions = (props) => {
 
   const [widgetOptions] = useAtom(widgetOptionsAtom);
   const [widgetIdx, setWidgetIdx] = useAtom(initWidgetIdxAtom);
@@ -36,7 +36,8 @@ const WidgetOptions = () => {
                 <div style={{ padding: '0 24px' }}>
                     <h3>{name}</h3>
                     <OptionForm/>
-                </div>
+                    {props.children}
+                </div>                
               </TabPane>  
           )})
         }
