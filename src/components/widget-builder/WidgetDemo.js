@@ -1,11 +1,26 @@
 import React, {useEffect} from "react";
 import { useAtom } from 'jotai';
+import { Skeleton } from '@douyinfe/semi-ui';
 import {Widget} from '../widgets'
 import {initWidgetAtom, initWidgetIdxAtom, setWidgetInputValueAtom} from '../../jotais'
+
+const style = {
+  display: 'flex',
+  alignItems: 'flex-start',
+};
 
 const WidgetDemo = () => {
   const [widget, setWidget] = useAtom(initWidgetAtom);
   const {user_name, url} = widget;
+
+  const placeholder = (
+    <div>
+      <div>
+        <Skeleton.Title style={{ width: 120, marginBottom: 12, marginTop: 12 }} />
+        <Skeleton.Paragraph style={{ width: "100%" }} rows={3} />
+      </div>
+    </div>
+  );  
   
   if(user_name || url) {    
     return <Widget
@@ -26,7 +41,7 @@ const WidgetDemo = () => {
       />
   } else {
     return (
-      <div></div>
+      <Skeleton placeholder={placeholder} active={false}/>
     )
   }
 }
