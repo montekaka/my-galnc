@@ -10,7 +10,7 @@ export const widgetOptionsAtom = atom([
     link_type: "general",
     icon_name: "twitter",
     name: "Pinned Tweet", 
-    shortDescription: "Copy and paste your tweet link.",
+    shortDescription: "Copy and paste your tweet url.",
     placeholder: " e.g. https://twitter.com/cogentgene/status/1461834314132381705",
     input_name: 'url',
     endpoint: '/v1/twitter?url=',
@@ -35,7 +35,7 @@ export const widgetOptionsAtom = atom([
     link_type: "medium",
     icon_name: "medium",
     name: "Medium Posts", 
-    shortDescription: "Enter your Medium username.",
+    shortDescription: "Enter your Medium username to show your latest 5 articles.",
     placeholder: "e.g. @justcastapp",
     linkAppend: "https://medium.com/feed/",
     input_name: "user_name"
@@ -47,7 +47,7 @@ export const widgetOptionsAtom = atom([
     link_type: "dev",
     icon_name: "dev",
     name: "Dev.to Posts", 
-    shortDescription: "Enter your Dev.to username.",
+    shortDescription: "Enter your Dev.to username to show your latest 5 articles.",
     placeholder: "e.g. montekaka",
     linkAppend: "https://dev.to/feed/",
     input_name: "user_name" 

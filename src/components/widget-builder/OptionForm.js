@@ -30,7 +30,6 @@ const OptionForm = (props) => {
   return (
     <div>
       <p>{option.shortDescription}</p>
-      <p>{option.linkAppend}{widget[input_name]}</p>
       <Input 
         size="large" 
         showClear 
@@ -39,7 +38,7 @@ const OptionForm = (props) => {
         placeholder={option.placeholder}
         onChange={handleInputChange}
       />
-      <Button type="primary" onClick={handleUpdatePreview}>Preview</Button> 
+      <Button type="primary" onClick={handleUpdatePreview}>Test</Button> 
     </div>
   )
 }

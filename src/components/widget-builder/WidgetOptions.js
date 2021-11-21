@@ -12,9 +12,11 @@ const WidgetOptions = (props) => {
 
   return (
     <div>
-      <Tabs 
+      <Tabs
+        style={{ width: '60%', margin: '20px' }}
         tabPosition="left" 
         type="line"
+        // collapsible
         onTabClick={(ak) => {
           setWidgetIdx(Number(ak - 1));
         }}
@@ -34,9 +36,9 @@ const WidgetOptions = (props) => {
                   itemKey={(idx+1).toString()}
               >
                 <div style={{ padding: '0 24px' }}>
-                    <h3>{name}</h3>
-                    <OptionForm/>
-                    {props.children}
+                  <h3>{name}</h3>
+                  <OptionForm/>
+                  {props.children}
                 </div>                
               </TabPane>  
           )})
