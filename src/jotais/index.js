@@ -8,7 +8,9 @@ import {
   loadingProfilesAtom, 
   deleteProfileAtom,
   createProfileAtom,
-  updateProfileAtom
+  updateProfileAtom,
+  setCurrentProfileAtom,
+  currentProfileAtom
 } from './profileAtom'
 import {
   currentWidgetIdxAtom, 
@@ -51,5 +53,7 @@ export {
   updateWidgetFromInputAtom,
   newWidgetProfileIdAtom,
   setNewWidgetProfileIdAtom,
-  updateWidgetAtom
+  updateWidgetAtom,
+  setCurrentProfileAtom,
+  currentProfileAtom  
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from 'axios'
 
-const useFetchProfile = (slug) => {
+const useFetchProfile = (slug, updatedDate) => {
   const [darkColor, setDarkColor] = useState(null);
   const [profile, setProfile] = useState(null);
   const [socialNetworks, setSocialNetworks] = useState([]);
@@ -35,7 +35,7 @@ const useFetchProfile = (slug) => {
       })
 
     }
-  }, [slug])
+  }, [slug, updatedDate])
 
   return [profile, socialNetworks, techSkills, bodyWidgets, bannerWidgets, loading, errorMessage];
 }

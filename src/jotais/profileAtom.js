@@ -5,6 +5,16 @@ import {notificationAtom} from './notificationAtom'
 export const profilesAtom = atom([]);
 export const loadingProfilesAtom = atom(false);
 
+export const currentProfileAtom = atom({id: null, updatedDate: null});
+export const setCurrentProfileAtom = atom((get) => {
+  return get(currentProfileAtom);
+}, (_get, set, data) => {
+  const state = _get(currentProfileAtom);
+  set(currentProfileAtom, () => {
+    return {...state, ...data};
+  })
+})
+
 export const fetchProfilesAtom = atom((get) => {
   return get(profilesAtom);
 }, (_get, set, _) => {

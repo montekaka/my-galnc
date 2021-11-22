@@ -1,15 +1,18 @@
 import React, {useState, useEffect} from "react";
 import { useAtom } from 'jotai';
-import {updateThemeAtom, setNewWidgetProfileIdAtom} from './../jotais'
+import {updateThemeAtom, setNewWidgetProfileIdAtom, currentProfileAtom} from './../jotais'
 import {ProfileLayout, Widget} from '../components'
 import {useFetchProfile} from '../hooks'
 import {ProfileCard, MyStacks} from 'glance-react-components'
 
 const ProfilePage = (props) => {
-  const id = props.match.params.id;  
-  const [profile, socialNetworks, techSkills, bodyWidgets, bannerWidgets, loading, errorMessage] = useFetchProfile(id);
+  const id = props.match.params.id;
+  const [updatedDate, setUpdatedDate] = useState(new Date());
+  
+  const [profile, socialNetworks, techSkills, bodyWidgets, bannerWidgets, loading, errorMessage] = useFetchProfile(id, updatedDate);;
   const [themes, setThemes] = useAtom(updateThemeAtom);
   const [_, setProfileId] = useAtom(setNewWidgetProfileIdAtom);
+  const [currentProfile] = useAtom(currentProfileAtom);
 
   useEffect(() => {
     if(profile) {
@@ -29,6 +32,12 @@ const ProfilePage = (props) => {
       }
     }
   }, [profile])
+
+  useEffect(() => {
+    if(currentProfile.id) {
+      setUpdatedDate(currentProfile.updatedDate);
+    }
+  }, [currentProfile])
 
 
   if(loading) return null;
