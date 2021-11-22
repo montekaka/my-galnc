@@ -3,6 +3,7 @@ import {Widget} from './widgets'
 import {HeaderMenus} from './menus'
 import {CreateProfile, ProfileCard, EditProfile, SocialNetworks, TechSkillsPicker} from './profiles'
 import {WidgetBuilder} from './widget-builder'
+import {CustomModal} from './modal'
 
 export {
   ProfileLayout,
@@ -13,5 +14,6 @@ export {
   EditProfile,
   SocialNetworks,
   TechSkillsPicker,
-  WidgetBuilder
+  WidgetBuilder,
+  CustomModal
 }

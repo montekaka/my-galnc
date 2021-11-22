@@ -1,6 +1,7 @@
 import {themeAtom, updateThemeAtom} from './themeAtom'
 import {authAtom, tryLocalSignin, signout, signin} from './authAtom'
 import {notificationAtom, updateNotificationAtom} from './notificationAtom'
+import {modalAtom, setModalAtom} from './modalAtom'
 import {
   fetchProfilesAtom, 
   profilesAtom, 
@@ -19,10 +20,13 @@ import {
   widgetInputValueAtom,
   updateWidgetFromInputAtom,
   newWidgetProfileIdAtom,
-  setNewWidgetProfileIdAtom
+  setNewWidgetProfileIdAtom,
+  updateWidgetAtom
 } from './widgetAtom'
 
 export {
+  modalAtom, 
+  setModalAtom,
   themeAtom,
   updateThemeAtom,
   authAtom, 
@@ -46,5 +50,6 @@ export {
   widgetInputValueAtom,
   updateWidgetFromInputAtom,
   newWidgetProfileIdAtom,
-  setNewWidgetProfileIdAtom
+  setNewWidgetProfileIdAtom,
+  updateWidgetAtom
 }

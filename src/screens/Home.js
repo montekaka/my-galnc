@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import { useAtom } from "jotai";
-import {CreateProfile, ProfileCard, WidgetBuilder} from '../components'
+import {CreateProfile, ProfileCard} from '../components'
 import {fetchProfilesAtom, loadingProfilesAtom} from '../jotais'
 
 // https://en.gravatar.com/
@@ -34,7 +34,6 @@ const Home = () => {
         })
       }   
       </div>
-      <WidgetBuilder/>   
     </div>
   )
 }

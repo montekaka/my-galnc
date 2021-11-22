@@ -4,7 +4,7 @@ import { Button, Input, InputGroup, Select } from '@douyinfe/semi-ui';
 import {themeAtom, 
   currentWidgetIdxAtom, widgetOptionsAtom, 
   setWidgetInputValueAtom,initWidgetAtom,
-  updateWidgetFromInputAtom
+  updateWidgetFromInputAtom, updateWidgetAtom
 } from '../../jotais'
 
 const OptionForm = (props) => {
@@ -14,6 +14,7 @@ const OptionForm = (props) => {
   const [widgetOption] = useAtom(widgetOptionsAtom);
   const [widgetInput, setWidgetInput] = useAtom(setWidgetInputValueAtom);
   const [_, updateWidgetFromInput] = useAtom(updateWidgetFromInputAtom)
+  const [__, updateWidget] = useAtom(updateWidgetAtom);
 
   const option = widgetOption[currentWidgetIdx];
   // const input_name = option['input_name'];
@@ -25,7 +26,7 @@ const OptionForm = (props) => {
   }
 
   const handleSelectChange = (section_name) => {
-    setWidget({section_name})
+    updateWidget({section_name})
   }
 
   const handleUpdatePreview = () => {

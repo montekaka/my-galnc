@@ -34,10 +34,10 @@ const ProfileCard = (props) => {
       footerStyle={{ display: 'flex', justifyContent: 'flex-end' }}
       footer={
         <Space>          
-          <Button theme='solid' type='primary' onClick={openPreview}>Preview</Button>
           <Button theme='borderless' type='danger' onClick={() => {
             deleteProfile(id)
-          }}>Delete</Button>          
+          }}>Delete</Button>                
+          <Link to={`/${id}`} style={{ textDecoration: 'none' }}><Button theme='solid' type='primary'>Preview</Button></Link>    
         </Space>
       }
     >

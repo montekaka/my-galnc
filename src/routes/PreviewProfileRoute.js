@@ -1,15 +1,16 @@
 import React, { useEffect} from "react";
 import { Route, Redirect } from 'react-router-dom'
 import { useAtom } from 'jotai';
-import { authAtom, tryLocalSignin, fetchProfilesAtom, notificationAtom } from '../jotais'
+import { authAtom, tryLocalSignin, fetchProfilesAtom, notificationAtom, setModalAtom } from '../jotais'
 import { Toast, Layout, Button } from '@douyinfe/semi-ui';
-import {HeaderMenus} from './../components'
+import {HeaderMenus, CustomModal} from './../components'
 import { IconPlus} from '@douyinfe/semi-icons';
 
 const PreviewProfileRoute = ({ component: Component, ...rest }) => {
   // const {state, tryLocalSignin} = useContext(AuthContext)
   const [authUser] = useAtom(authAtom);
   const [notification] = useAtom(notificationAtom)
+  const [modal, setModal] = useAtom(setModalAtom)
   // const [profiles, fetchProfiles] = useAtom(fetchProfilesAtom);
   const [, trylocalSignIn] = useAtom(tryLocalSignin);
   const { Header, Footer, Content } = Layout;
@@ -31,7 +32,7 @@ const PreviewProfileRoute = ({ component: Component, ...rest }) => {
   }, [notification.createdTime])  
 
   const handleClick = () => {
-    console.log({type: 'add-widget'})
+    setModal({type: 'add-widget', title: 'Add new widget', visible: true, fullScreen: true})
   }
 
   if(authUser.signedIn === undefined) {
@@ -40,6 +41,7 @@ const PreviewProfileRoute = ({ component: Component, ...rest }) => {
     return (
       <Route {...rest} render={(props) => (
         <Layout style={{border: 'var(--semi-color-border)', minHeight: "100vh"}}>
+          <CustomModal/>
           <Header style={{backgroundColor: 'var(--semi-color-bg-1)'}}>
             <HeaderMenus>
               <Button onClick={handleClick} icon={<IconPlus />} type="warning" style={{ marginRight: 20 }}>New Widget</Button>

@@ -108,6 +108,14 @@ export const initWidgetIdxAtom = atom((get) => {
 
 export const widgetAtom = atom({});
 
+export const updateWidgetAtom = atom(null, (get, set, data) => {
+  const state = get(widgetAtom);
+
+  set(widgetAtom, () => {
+    return {...state, ...data};
+  })
+})
+
 export const initWidgetAtom = atom((get) => {
   return get(widgetAtom);
 }, (_get, set, data) => {  
@@ -116,7 +124,7 @@ export const initWidgetAtom = atom((get) => {
   const id = _get(currentWidgetIdxAtom);
   const options = _get(widgetOptionsAtom);
   const option = options[id];
-  
+
   if(data && data['user_name'] && option['linkAppend']) {
     const url = `${option['linkAppend']}${data['user_name']}`  
     set(widgetAtom, () => {
@@ -149,7 +157,9 @@ export const updateWidgetFromInputAtom = atom(null, (_get, set, data) => {
     updateData['url'] = `${option['linkAppend']}${inputStr}`;
   }
 
-  
+  if(!state.section_name) {
+    updateData['section_name'] = 'body';
+  }
 
   if(option['getRemoteData'] && option['endpoint']) {
     const remotePath = `${option['endpoint']}${inputStr}`
