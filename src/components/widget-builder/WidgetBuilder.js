@@ -20,10 +20,12 @@ const WidgetBuilder = () => {
   return (
     <div>
       <WidgetOptions>
-        <div>
+        <div style={{marginTop: "40px", marginBottom: "40px"}}>
           <WidgetDemo/>
         </div>
-        
+        <div>
+          
+        </div>
       </WidgetOptions>
     </div>
   )

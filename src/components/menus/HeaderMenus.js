@@ -5,7 +5,7 @@ import { Dropdown, Toast, Nav, Button, Breadcrumb, Skeleton, Avatar } from '@dou
 import { IconHome, IconHelpCircle, IconUserAdd } from '@douyinfe/semi-icons';
 import {authAtom, signout} from '../../jotais'
 
-const HeaderMenus = () => {
+const HeaderMenus = (props) => {
   const [user] = useAtom(authAtom);
   const [_, signOutUser] = useAtom(signout)
 
@@ -31,8 +31,8 @@ const HeaderMenus = () => {
         >
           <Link to="/" style={{ textDecoration: 'none' }}><Nav.Item itemKey='home' text='Home' icon={<IconHome size="large" />} /></Link>
           <Link to="/new-profile" style={{ textDecoration: 'none' }}><Nav.Item itemKey='newprofile' text='New Profile' icon={<IconUserAdd size="large" />} /></Link>
-          <Nav.Footer>  
-          <Button
+          <Nav.Footer>
+            <Button
               theme="borderless"
               icon = {<IconHelpCircle size="large"/>}
               style={{
@@ -40,7 +40,8 @@ const HeaderMenus = () => {
                 marginRight: '12px',
               }}
               onClick={switchMode}
-            />             
+            />
+            {props.children}
             <Dropdown
               trigger={'click'}
               showTick

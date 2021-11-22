@@ -2,6 +2,16 @@ import { atom } from "jotai";
 import {msParserApi} from '../apis'
 import {notificationAtom} from './notificationAtom'
 
+export const newWidgetProfileIdAtom = atom('');
+
+export const setNewWidgetProfileIdAtom = atom((get) => {
+  return get(newWidgetProfileIdAtom);
+}, (_get, set, newId) => {
+  set(newWidgetProfileIdAtom, () =>{ 
+    return newId;
+  })
+})
+
 export const widgetOptionsAtom = atom([
   {
     idx: 0,

@@ -17,7 +17,9 @@ import {
   initWidgetIdxAtom,
   setWidgetInputValueAtom,
   widgetInputValueAtom,
-  updateWidgetFromInputAtom
+  updateWidgetFromInputAtom,
+  newWidgetProfileIdAtom,
+  setNewWidgetProfileIdAtom
 } from './widgetAtom'
 
 export {
@@ -42,5 +44,7 @@ export {
   initWidgetIdxAtom,
   setWidgetInputValueAtom,
   widgetInputValueAtom,
-  updateWidgetFromInputAtom
+  updateWidgetFromInputAtom,
+  newWidgetProfileIdAtom,
+  setNewWidgetProfileIdAtom
 }

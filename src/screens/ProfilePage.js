@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useAtom } from 'jotai';
-import {updateThemeAtom} from './../jotais'
+import {updateThemeAtom, setNewWidgetProfileIdAtom} from './../jotais'
 import {ProfileLayout, Widget} from '../components'
 import {useFetchProfile} from '../hooks'
 import {ProfileCard, MyStacks} from 'glance-react-components'
@@ -9,6 +9,7 @@ const ProfilePage = (props) => {
   const id = props.match.params.id;  
   const [profile, socialNetworks, techSkills, bodyWidgets, bannerWidgets, loading, errorMessage] = useFetchProfile(id);
   const [themes, setThemes] = useAtom(updateThemeAtom);
+  const [_, setProfileId] = useAtom(setNewWidgetProfileIdAtom);
 
   useEffect(() => {
     if(profile) {
@@ -23,9 +24,13 @@ const ProfilePage = (props) => {
           warning_color, info_color, light_color, dark_color,
           font_family})
       }
+      if(profile.id) {
+        setProfileId(profile.id);
+      }
     }
   }, [profile])
-  
+
+
   if(loading) return null;
   if(errorMessage) return (<h2>{errorMessage}</h2>);
   

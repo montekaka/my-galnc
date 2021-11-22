@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import AuthRoute from './AuthRoute'
 import AuthedRoute from './AuthedRoute'
+import PreviewProfileRoute from './PreviewProfileRoute'
 
 import {DemoPage, ProfilePage, Home, 
   ProfileNew, ProfileEdit, ProfileSocialLinks, ProfileTechSkills} from '../screens'
@@ -23,7 +24,7 @@ const MainRoutes = () => {
       <AuthedRoute exact path="/profile/:id" component={ProfileEdit} />
       <AuthedRoute exact path="/profile/:id/social-links" component={ProfileSocialLinks} />
       <AuthedRoute exact path="/profile/:id/tech-skills" component={ProfileTechSkills} />      
-      <Route exact path="/:id" component={ProfilePage} />
+      <PreviewProfileRoute exact path="/:id" component={ProfilePage} />
     </Switch>
   )
 }
