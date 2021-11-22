@@ -1,6 +1,6 @@
 import React from "react";
 import { useAtom } from 'jotai';
-import { Button, Input } from '@douyinfe/semi-ui';
+import { Button, Input, InputGroup, Select } from '@douyinfe/semi-ui';
 import {themeAtom, 
   currentWidgetIdxAtom, widgetOptionsAtom, 
   setWidgetInputValueAtom,initWidgetAtom,
@@ -16,11 +16,16 @@ const OptionForm = (props) => {
   const [_, updateWidgetFromInput] = useAtom(updateWidgetFromInputAtom)
 
   const option = widgetOption[currentWidgetIdx];
-  const input_name = option['input_name'];
+  // const input_name = option['input_name'];
+  const {user_name, url, section_name} = widget;
 
   const handleInputChange = (v) => {
     // setWidget({[input_name]: v})
     setWidgetInput(v);
+  }
+
+  const handleSelectChange = (section_name) => {
+    setWidget({section_name})
   }
 
   const handleUpdatePreview = () => {
@@ -30,15 +35,27 @@ const OptionForm = (props) => {
   return (
     <div>
       <p>{option.shortDescription}</p>
-      <Input 
-        size="large" 
-        showClear 
-        // value={widget[input_name]} 
-        value={widgetInput}
-        placeholder={option.placeholder}
-        onChange={handleInputChange}
-      />
-      <Button type="primary" onClick={handleUpdatePreview}>Test</Button> 
+      <div style={{
+        display: 'flex',
+        // flexWrap: 'wrap',
+        columnGap: '10px',
+        rowGap: '10px'
+      }}>
+        <Select size="large" style={{ width: '100px'}} value={section_name ? section_name : "body"} onChange={handleSelectChange}>
+          <Select.Option value='body'>Body</Select.Option>
+          <Select.Option value='banner'>Banner</Select.Option>
+        </Select>  
+        <Input 
+          size="large" 
+          showClear 
+          // value={widget[input_name]} 
+          value={widgetInput}
+          placeholder={option.placeholder}
+          onChange={handleInputChange}
+        />            
+        <Button size="large" type="primary" theme='solid' disabled={(widgetInput === "")} onClick={handleUpdatePreview}>Test</Button>
+      </div>
+      
     </div>
   )
 }
