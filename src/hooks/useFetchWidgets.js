@@ -25,17 +25,16 @@ const useFetchWidgets = (id) => {
     })
   }, [])
 
-  const updateItems = (id, items) => {
-    railsApi.post(`/v1/profiles/${id}/widgets`, {items})
+  const saveChangedItems = () => {
+    console.log({items: widgets})
+    railsApi.post(`/v1/profiles/${id}/sync_widgets`, {items: widgets})
     .then((res) => {
-      // const skills = res.data.map((x) => x.icon_name);
-      // setItems(skills);
-      // setWidgets(res.data)
-      // updateNotification({
-      //   createdTime: new Date(),
-      //   message: "Updated widgets",
-      //   status: true,
-      // })
+      setWidgets(res.data)
+      updateNotification({
+        createdTime: new Date(),
+        message: "Updated widgets",
+        status: true,
+      })
     })
     .catch((err) => {
       updateNotification({
@@ -48,7 +47,7 @@ const useFetchWidgets = (id) => {
   }
 
 
-  return [loading, updateItems, widgets, setWidgets]
+  return [loading, saveChangedItems, widgets, setWidgets]
 }
 
 export default useFetchWidgets;
