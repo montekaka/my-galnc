@@ -4,6 +4,7 @@ import useFetchProfiles from './useFetchProfiles'
 import useFetchSocialNetworks from './useFetchSocialNetworks'
 import useFetchTechSkills from './useFetchTechSkills'
 import useCreateWidget from './useCreateWidget'
+import useFetchWidgets from './useFetchWidgets'
 
 export {
   useFetchFeed,
@@ -11,5 +12,6 @@ export {
   useFetchProfiles,
   useFetchSocialNetworks,
   useFetchTechSkills,
-  useCreateWidget
+  useCreateWidget,
+  useFetchWidgets
 }

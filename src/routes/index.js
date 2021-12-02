@@ -10,7 +10,7 @@ import AuthedRoute from './AuthedRoute'
 import PreviewProfileRoute from './PreviewProfileRoute'
 
 import {DemoPage, ProfilePage, Home, 
-  ProfileNew, ProfileEdit, ProfileSocialLinks, ProfileTechSkills} from '../screens'
+  ProfileNew, ProfileEdit, ProfileSocialLinks, ProfileTechSkills, ProfileWidgets} from '../screens'
 import {SignIn} from '../auth'
 
 const MainRoutes = () => {
@@ -23,7 +23,8 @@ const MainRoutes = () => {
       <AuthedRoute exact path="/new-profile" component={ProfileNew}/>
       <AuthedRoute exact path="/profile/:id" component={ProfileEdit} />
       <AuthedRoute exact path="/profile/:id/social-links" component={ProfileSocialLinks} />
-      <AuthedRoute exact path="/profile/:id/tech-skills" component={ProfileTechSkills} />      
+      <AuthedRoute exact path="/profile/:id/tech-skills" component={ProfileTechSkills} /> 
+      <AuthedRoute exact path="/profile/:id/widgets" component={ProfileWidgets} />      
       <PreviewProfileRoute exact path="/:id" component={ProfilePage} />
     </Switch>
   )

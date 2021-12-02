@@ -48,6 +48,9 @@ const ProfileCard = (props) => {
         <Link to={`/profile/${id}/tech-skills`} style={{ textDecoration: 'none' }}>
           <Button theme='borderless' type='primary'>Tech Skills</Button>        
         </Link>
+        <Link to={`/profile/${id}/widgets`} style={{ textDecoration: 'none' }}>
+          <Button theme='borderless' type='primary'>Widgets</Button>        
+        </Link>        
       </Space>
     </Card>
   )

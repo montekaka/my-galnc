@@ -23,14 +23,15 @@ const HeaderMenus = (props) => {
   if(user && user.uid) {
     return (
       <div>
-        <Nav mode='horizontal' defaultSelectedKeys={['Home']}
+        <Nav mode='horizontal' 
+          // defaultSelectedKeys={['Home']}
           header={{
             logo: <img src="//lf1-cdn-tos.bytescm.com/obj/ttfe/ies/semi/webcast_logo.svg" />,
             text: 'MyGlance'
           }}      
         >
           <Link to="/" style={{ textDecoration: 'none' }}><Nav.Item itemKey='home' text='Home' icon={<IconHome size="large" />} /></Link>
-          <Link to="/new-profile" style={{ textDecoration: 'none' }}><Nav.Item itemKey='newprofile' text='New Profile' icon={<IconUserAdd size="large" />} /></Link>
+          {/* <Link to="/new-profile" style={{ textDecoration: 'none' }}><Nav.Item itemKey='newprofile' text='New Profile' icon={<IconUserAdd size="large" />} /></Link> */}
           <Nav.Footer>
             <Button
               theme="borderless"
