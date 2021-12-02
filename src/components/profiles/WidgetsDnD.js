@@ -29,7 +29,9 @@ const WidgetsDnD = (props) => {
     <div style={{paddingTop: 40}}>
       <Row type="flex" justify="center" style={{marginBottom: '20px'}}>
         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-          <Button block theme="solid"  type="primary" >New Widget</Button>      
+          {/* <Button block theme="solid"  type="primary" >New Widget</Button>       */}
+          <p>Use drag and drop to reorder widgets.</p>
+          <p>Please use the Save button below to commit the change.</p>
         </Col>            
       </Row>
       <Row type="flex" justify="center">        

@@ -26,7 +26,6 @@ const useFetchWidgets = (id) => {
   }, [])
 
   const saveChangedItems = () => {
-    console.log({items: widgets})
     railsApi.post(`/v1/profiles/${id}/sync_widgets`, {items: widgets})
     .then((res) => {
       setWidgets(res.data)
