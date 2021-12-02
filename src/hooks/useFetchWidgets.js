@@ -4,7 +4,7 @@ import { useAtom } from "jotai";
 import {updateNotificationAtom} from '../jotais'
 
 const useFetchWidgets = (id) => {
-  const [items, setItems] = useState([]);
+  // const [items, setItems] = useState([]);
   const [widgets, setWidgets] = useState([]);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -16,7 +16,7 @@ const useFetchWidgets = (id) => {
     railsApi.get(`/v1/profiles/${id}/widgets`)
     .then((res) => {      
       const arr = res.data;
-      setItems(arr);
+      // setItems(arr);
       setWidgets(arr)
       setLoading(false);
     })
@@ -48,7 +48,7 @@ const useFetchWidgets = (id) => {
   }
 
 
-  return [items, setItems, loading, updateItems, widgets, setWidgets]
+  return [loading, updateItems, widgets, setWidgets]
 }
 
 export default useFetchWidgets;

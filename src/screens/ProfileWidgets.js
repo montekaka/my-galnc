@@ -7,11 +7,11 @@ import {useFetchWidgets} from '../hooks'
 
 const ProfileWidgets = (props) => {
   const id = props.match.params.id;
-  const [selectedWidgets, setSelectedWidgets, loading, updateItems, widgets, setWidgets] = useFetchWidgets(id);
+  const [loading, updateItems, widgets, setWidgets] = useFetchWidgets(id);
   // const [selectedSkills, setSelectedSkills] = useState([])
   
-  const updateSkills = (skills, newTechSkills) => {
-    
+  const updateWidgets = (items) => {
+    setWidgets(items)
   }
   const handleSave = () => {
     
@@ -22,8 +22,8 @@ const ProfileWidgets = (props) => {
 
   return (
     <WidgetsDnD 
-      items={selectedWidgets}
-      updateItem={updateSkills}
+      items={widgets}
+      updateItem={updateWidgets}
     >
       <Row type="flex" justify="center" style={{marginTop: "20px"}}>
         <Col xs={24} sm={24} md={12} lg={12} xl={12}>
