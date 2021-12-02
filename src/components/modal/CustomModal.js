@@ -15,27 +15,7 @@ const CustomModal = () => {
   const {title, visible, type, fullScreen} = modal;
   const [_, updateNotification] = useAtom(updateNotificationAtom);
 
-  const [addNewWidget, addNewWidgetLoading, newWidgetSuccess, newWigetFailed] = useCreateWidget()
-
-  useEffect(() => {
-    if(newWidgetSuccess) {
-      updateNotification({
-        status: true,
-        message: newWidgetSuccess,
-        createdTime: new Date()
-      })
-    }
-  }, [newWidgetSuccess])
-
-  useEffect(() => {
-    if(newWigetFailed) {
-      updateNotification({
-        status: true,
-        message: newWigetFailed,
-        createdTime: new Date()
-      })
-    }
-  }, [newWigetFailed])  
+  const [addNewWidget] = useCreateWidget()
 
   const handleCancel = () => {
     setModal({visible: false, type: null, fullScreen: false, title: null});

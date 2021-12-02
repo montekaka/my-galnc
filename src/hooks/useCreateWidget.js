@@ -1,13 +1,16 @@
 import { useState } from "react";
 import {railsApi} from '../apis';
 import { useAtom } from "jotai";
-import {setCurrentProfileAtom} from '../jotais'
+import {setCurrentProfileAtom, setWidgetInputValueAtom, resetWidgetAtom, updateNotificationAtom} from '../jotais'
 
 const useCreateWidget = () => {
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null);
   const [currentProfile, setCurrentProfile] = useAtom(setCurrentProfileAtom)
+  const [_, setWidgetInputValue] = useAtom(setWidgetInputValueAtom);
+  const [__, resetWidget] = useAtom(resetWidgetAtom);
+  const [___, updateNotification] = useAtom(updateNotificationAtom);
   
   const createWidget = (profileId, widgetData) => {
     setLoading(true);
@@ -18,12 +21,24 @@ const useCreateWidget = () => {
       setErrorMessage(null);
       const newDate = new Date();
       setCurrentProfile({id: profileId, updatedDate: newDate});
+      setWidgetInputValue(''); // reset the input value to empty
+      resetWidget();
+      updateNotification({
+        status: true,
+        message: 'Widget added',
+        createdTime: new Date()
+      })      
     })
     .catch((err) => {
       console.log(err)
       setSuccessMessage(null);
       setLoading(false);
       setErrorMessage('Failed to add widget');
+      updateNotification({
+        status: true,
+        message: 'Failed to add widget',
+        createdTime: new Date()
+      })      
     })
     
   }

@@ -94,6 +94,7 @@ export const initWidgetIdxAtom = atom((get) => {
   })
 })
 
+
 // id: null,
 // is_dynamic_content: true, 
 // widget_type: "list",
@@ -107,6 +108,14 @@ export const initWidgetIdxAtom = atom((get) => {
 // sort_order: 3
 
 export const widgetAtom = atom({});
+
+export const resetWidgetAtom = atom(null, (get, set, _) => {
+  const state = get(widgetAtom);
+  const {section_name} = state;  
+  set(widgetAtom, () => {
+    return {section_name};
+  })
+})
 
 export const updateWidgetAtom = atom(null, (get, set, data) => {
   const state = get(widgetAtom);

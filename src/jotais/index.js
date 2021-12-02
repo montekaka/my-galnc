@@ -23,7 +23,8 @@ import {
   updateWidgetFromInputAtom,
   newWidgetProfileIdAtom,
   setNewWidgetProfileIdAtom,
-  updateWidgetAtom
+  updateWidgetAtom,
+  resetWidgetAtom
 } from './widgetAtom'
 
 export {
@@ -55,5 +56,6 @@ export {
   setNewWidgetProfileIdAtom,
   updateWidgetAtom,
   setCurrentProfileAtom,
-  currentProfileAtom  
+  currentProfileAtom,
+  resetWidgetAtom
 }
