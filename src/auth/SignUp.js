@@ -1,24 +1,24 @@
 import React, {useState} from "react";
 import { Button } from '@douyinfe/semi-ui';
 import { useAtom } from 'jotai';
-import { signin} from '../jotais'
+import { signup} from '../jotais'
 import AuthForm from './AuthForm'
 
-const SignIn = () => {
-  const [, userSignIn] = useAtom(signin);
+const SignUp = () => {
+  const [, userSignUp] = useAtom(signup);
  
   const onSubmit = (user) => {
-    userSignIn(user)
+    userSignUp(user)
   }
 
   return (
     <div>
-      <p>Login to Your Account</p>
+      <p>Sign up</p>
       <AuthForm onSubmit={onSubmit}>
-        <Button htmlType='submit' type="tertiary" block>Log in</Button>
+        <Button htmlType='submit' type="tertiary" block>Sign up</Button>
       </AuthForm>
     </div>
   )
 }
 
-export default SignIn;
+export default SignUp;

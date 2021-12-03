@@ -1,24 +1,34 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import {useAtom} from 'jotai'
 import { Dropdown, Toast, Nav, Button, Breadcrumb, Skeleton, Avatar } from '@douyinfe/semi-ui';
-import { IconHome, IconHelpCircle, IconUserAdd } from '@douyinfe/semi-icons';
+import { IconSun, IconMoon, IconHome, IconHelpCircle, IconUserAdd } from '@douyinfe/semi-icons';
 import {authAtom, signout} from '../../jotais'
 
 const HeaderMenus = (props) => {
   const [user] = useAtom(authAtom);
-  const [_, signOutUser] = useAtom(signout)
+  const [_, signOutUser] = useAtom(signout);
+  const [darkMode, setDarkMode] = useState(false);
 
   const switchMode = () => {
     const body = document.body;
     if (body.hasAttribute('theme-mode')) {
       body.removeAttribute('theme-mode');
       localStorage.removeItem('theme-mode');
+      setDarkMode(false);
     } else {
       body.setAttribute('theme-mode', 'dark');
       localStorage.setItem('theme-mode', 'dark');
+      setDarkMode(true);
     }    
   }
+
+  useEffect(() => {
+    const body = document.body;
+    if(body.hasAttribute('theme-mode')) {
+      setDarkMode(true);
+    }
+  }, []);  
 
   if(user && user.uid) {
     return (
@@ -35,7 +45,7 @@ const HeaderMenus = (props) => {
           <Nav.Footer>
             <Button
               theme="borderless"
-              icon = {<IconHelpCircle size="large"/>}
+              icon = {darkMode ? <IconSun size="large"/> : <IconMoon size="large"/>}
               style={{
                 color:'var(--semi-color-text-2)',
                 marginRight: '12px',

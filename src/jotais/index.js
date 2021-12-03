@@ -1,5 +1,5 @@
 import {themeAtom, updateThemeAtom} from './themeAtom'
-import {authAtom, tryLocalSignin, signout, signin} from './authAtom'
+import {authAtom, tryLocalSignin, signout, signin, signup} from './authAtom'
 import {notificationAtom, updateNotificationAtom} from './notificationAtom'
 import {modalAtom, setModalAtom} from './modalAtom'
 import {
@@ -36,6 +36,7 @@ export {
   tryLocalSignin, 
   signout, 
   signin,
+  signup,
   notificationAtom,
   updateNotificationAtom,
   profilesAtom, 

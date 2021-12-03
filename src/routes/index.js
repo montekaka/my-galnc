@@ -11,7 +11,7 @@ import PreviewProfileRoute from './PreviewProfileRoute'
 
 import {DemoPage, ProfilePage, Home, 
   ProfileNew, ProfileEdit, ProfileSocialLinks, ProfileTechSkills, ProfileWidgets} from '../screens'
-import {SignIn} from '../auth'
+import {SignIn, SignUp} from '../auth'
 
 const MainRoutes = () => {
   return (
@@ -19,6 +19,7 @@ const MainRoutes = () => {
       {/* <Route exact path="/" component={DemoPage} />       */}
       <AuthedRoute exact path="/" component={Home} />      
       <AuthRoute exact path="/signin" component={SignIn} />
+      <AuthRoute exact path="/signup" component={SignUp}/>
       <AuthedRoute exact path="/dashboard" component={Home}/>
       <AuthedRoute exact path="/new-profile" component={ProfileNew}/>
       <AuthedRoute exact path="/profile/:id" component={ProfileEdit} />

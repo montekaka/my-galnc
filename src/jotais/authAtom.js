@@ -33,6 +33,40 @@ export const tryLocalSignin = atom(null, (_get, set) => {
   });
 })
 
+
+export const signup = atom(null, (get, set, data) => {
+  const {email, password} = data;
+  const _email = email.toLowerCase();
+  const notiData = get(notificationAtom);
+
+  set(authAtom, async () => {        
+    try {      
+      const res = await railsApi.post('/auth', {email: _email, password})
+      const headers = res.headers;
+      const user = res.data.data;
+      AsyncStorage.setHeaderItems(headers);
+      // navigate('/dashboard')
+
+      return {...temp, ...user, signedIn: true, type: 'signin'}
+    } catch (err) {
+      set(notificationAtom, () => {
+        return {...notiData, 
+          createdTime: new Date(),
+          message: "Failed to sign up, please try with another email.",
+          status: true,
+        }
+      })
+      
+      setTimeout(() => {        
+        set(notificationAtom, () => {
+          return {...notiData, createdTime: new Date(), status: false};
+        }) 
+      }, 3000)
+
+      return {...temp, signedIn: false, type: 'add_error'};    
+    }
+  })  
+})
 export const signin = atom(null, (get, set, tryUser) => {
   const {email, password, is_activated} = tryUser;
   const _email = email.toLowerCase();
