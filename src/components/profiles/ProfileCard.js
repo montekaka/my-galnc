@@ -37,7 +37,7 @@ const ProfileCard = (props) => {
           <Button theme='borderless' type='danger' onClick={() => {
             deleteProfile(id)
           }}>Delete</Button>                
-          <Link to={`/${id}`} style={{ textDecoration: 'none' }}><Button theme='solid' type='primary'>Preview</Button></Link>    
+          <Link to={`/preview/${id}`} style={{ textDecoration: 'none' }}><Button theme='solid' type='primary'>Preview</Button></Link>    
         </Space>
       }
     >

@@ -60,7 +60,7 @@ const ProfilePage = (props) => {
             secondaryColor={themes.light_color}
             linksColor="#04D98C"
             linkColor={themes.success_color}
-            link={profile.slug}
+            link={`${process.env.REACT_APP_PROFILE_PAGE}/${profile.slug}`}
             links={socialNetworks}
           /> 
           <MyStacks
