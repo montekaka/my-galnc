@@ -27,6 +27,7 @@ const MainRoutes = () => {
       <AuthedRoute exact path="/profile/:id/tech-skills" component={ProfileTechSkills} /> 
       <AuthedRoute exact path="/profile/:id/widgets" component={ProfileWidgets} />      
       <PreviewProfileRoute exact path="/preview/:id" component={ProfilePage} />
+      <Route exact path="/:id" component={ProfilePage} /> 
     </Switch>
   )
 }
