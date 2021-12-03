@@ -3675,6 +3675,13 @@ copy-text-to-clipboard@^2.1.1:
   resolved "https://registry.yarnpkg.com/copy-text-to-clipboard/-/copy-text-to-clipboard-2.2.0.tgz#329dd6daf8c42034c763ace567418401764579ae"
   integrity sha512-WRvoIdnTs1rgPMkgA2pUOa/M4Enh2uzCwdKsOMYNAJiz/4ZvEJgmbF4OmninPmlFdAWisfeh0tH+Cpf7ni3RqQ==
 
+copy-to-clipboard@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/copy-to-clipboard/-/copy-to-clipboard-3.3.1.tgz#115aa1a9998ffab6196f93076ad6da3b913662ae"
+  integrity sha512-i13qo6kIHTTpCm8/Wup+0b1mVWETvu2kIMzKoK8FpkLkFxlt0znUAHcMzox+T8sPlqtZXq3CulEjQHsYiGFJUw==
+  dependencies:
+    toggle-selection "^1.0.6"
+
 core-js-compat@^3.6.2, core-js-compat@^3.8.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.9.0.tgz#29da39385f16b71e1915565aa0385c4e0963ad56"
@@ -5485,10 +5492,10 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-glance-react-components@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/glance-react-components/-/glance-react-components-0.1.6.tgz#4a448ba00cbcc94bd6a6c42b236ccfd1a493cdd5"
-  integrity sha512-iNXqtGLfUwWptdv9fLWIYaqbqoYkNS/ncSQJGDnWDnl7hVlSO9+WK9yGpflJsJykrz75Kj5ycVat+eM0GlqyWA==
+glance-react-components@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/glance-react-components/-/glance-react-components-0.1.8.tgz#683fdee9c85d0af9a6a95b963fc847cf4e88a1c7"
+  integrity sha512-OuX+sy2JTqlul8CnbnHQKcGiSn0AB8TGfg/c3k/2xx6Sj3kF83V6TdMofpLsgi8O3yUvwa3cHsOCJ/BAdVAQxA==
 
 glob-parent@^3.1.0:
   version "3.1.0"
@@ -11065,6 +11072,11 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     extend-shallow "^3.0.2"
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
+
+toggle-selection@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/toggle-selection/-/toggle-selection-1.0.6.tgz#6e45b1263f2017fa0acc7d89d78b15b8bf77da32"
+  integrity sha1-bkWxJj8gF/oKzH2J14sVuL932jI=
 
 toidentifier@1.0.0:
   version "1.0.0"
