@@ -4,13 +4,17 @@ import { Modal, Button } from '@douyinfe/semi-ui';
 import {setModalAtom} from '../../jotais'
 import {WidgetBuilder} from '../widget-builder'
 
-const ModalBody = () => {
+const ModalBody = (props) => {
 
   const [modal, setModal] = useAtom(setModalAtom);
   const {type} = modal;
 
   if(type === 'add-widget') {
-    return <WidgetBuilder/>
+    return (
+      <div>
+        <WidgetBuilder/>
+      </div>
+    )
   }
 
   return null;
