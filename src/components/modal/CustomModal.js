@@ -39,7 +39,7 @@ const CustomModal = () => {
       okText={"Save"}
       onOk={handleOk}
     >
-      <ModalBody/>
+      <ModalBody handleSave={handleOk}/>
     </Modal>
   )
 }

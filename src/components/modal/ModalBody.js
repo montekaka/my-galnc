@@ -4,7 +4,7 @@ import { Modal, Button } from '@douyinfe/semi-ui';
 import {setModalAtom} from '../../jotais'
 import {WidgetBuilder} from '../widget-builder'
 
-const ModalBody = (props) => {
+const ModalBody = ({handleSave, profileId}) => {
 
   const [modal, setModal] = useAtom(setModalAtom);
   const {type} = modal;
@@ -12,7 +12,7 @@ const ModalBody = (props) => {
   if(type === 'add-widget') {
     return (
       <div>
-        <WidgetBuilder/>
+        <WidgetBuilder setModal={setModal} handleSave={handleSave}/>
       </div>
     )
   }
