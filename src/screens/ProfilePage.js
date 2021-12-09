@@ -52,7 +52,7 @@ const ProfilePage = (props) => {
             title={profile.name}
             subtitle={profile.short_description}
             avatarSrc={profile.avatar_url}
-            avatarSize="100"
+            avatarSize="60"
             avatarBackgroundColor="#843CDD"
             fontFamily={themes.font_family}
             backgroundColor={themes.primary_color}
