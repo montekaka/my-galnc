@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <div className="grid">
-      <div>
+      <div style={{display: 'flex', justifyContent: 'center'}}>
       {
         profiles.map((profile) => {
           const {name, short_description, id} = profile;

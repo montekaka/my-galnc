@@ -17,7 +17,7 @@ const ProfileCard = (props) => {
 
   return (
     <Card
-      style={{ maxWidth: 340 }}
+      style={{ maxWidth: 500, backgroundColor: 'var(--semi-color-fill-1)' }}
       title={
         <Meta 
           title={name}

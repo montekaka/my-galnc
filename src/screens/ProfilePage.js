@@ -47,7 +47,7 @@ const ProfilePage = (props) => {
     
     return (
       <ProfileLayout backgroundColor={themes.danger_color}>
-        <div className="col-1">
+        <div className="col-1">          
           <ProfileCard
             title={profile.name}
             subtitle={profile.short_description}
@@ -62,7 +62,7 @@ const ProfilePage = (props) => {
             linkColor={themes.success_color}
             link={`${process.env.REACT_APP_PROFILE_PAGE}/${profile.slug}`}
             links={socialNetworks}
-          /> 
+          />         
           <MyStacks
             title="Technical Skills"
             iconName="tech-stacks"
