@@ -3,6 +3,30 @@
   padding: 20px;
 }
 
+.profile-app-page-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.profile-app-page-grid > .gl-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.profile-app-page-grid > .gl-body > .side-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}  
+
+.profile-app-page-grid > .gl-body > .main-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}  
+
 @media screen and (min-width: 1200px) {
   .profile-app-page-container {
     display: flex;
@@ -21,17 +45,5 @@
     display: grid;
     grid-template-columns: 300px minmax(0, 1fr);
     grid-gap: 1rem;
-  }  
-
-  .profile-app-page-grid > .gl-body > .side-col {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }  
-
-  .profile-app-page-grid > .gl-body > .main-col {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
   }  
 }
