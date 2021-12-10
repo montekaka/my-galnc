@@ -35,7 +35,7 @@ const Widget = (props) => {
           headerStyle={{
             color: light_color
           }}   
-          colors={["#1B275A","#BBE3D5","#006d32","#26a641","#39d353"]}
+          colors={["#131C45","#BBE3D5","#006d32","#26a641","#39d353"]}
       />      
     )
   } else if (widget_type === 'tweet') {
@@ -82,7 +82,8 @@ const Widget = (props) => {
         image_url={image_url}
         link_type={link_type}
         avatar_url={avatar_url}
-        show_thumbnail={show_thumbnail}      
+        show_thumbnail={show_thumbnail}    
+        backgroundColor={primary_color}  
       />
     )
   }

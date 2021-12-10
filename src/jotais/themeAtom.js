@@ -1,10 +1,10 @@
 import {atom} from "jotai"
-
+// 131C45
 export const themeAtom = atom({
-  primary_color: "#131C45",
+  primary_color: "#1B275A",
   secondary_color: "#3CD5ED",
   success_color: "#04A3D9",
-  danger_color: "#1B275A",
+  danger_color: "#131C45",
   warning_color: "#182354",
   info_color: "#FFFFFF",
   light_color: "#6E7598",
