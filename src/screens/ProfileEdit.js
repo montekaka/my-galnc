@@ -35,10 +35,12 @@ const ProfileEdit = (props) => {
   if(loadingProfile) return null;
 
   if(profile) {
+    console.log(profile)
     return (
       <EditProfile 
         name={profile.name}
         short_description={profile.short_description}
+        slug={profile.slug}
         onClick={handleUpdate}
       >       
         <Row type="flex" justify="center" style={{marginTop: "10px"}}>

@@ -3,20 +3,20 @@ import { Form, Col, Row, Steps, Button, useFormApi} from '@douyinfe/semi-ui';
 import ProfileForm from './ProfileForm'
 
 const EditProfile = (props) => {
-  const {name, short_description, onClick} = props;
+  const {name, short_description, slug, onClick} = props;
 
   return (
     <div>
       <Form
       style={{width: '100%'}}
       initValues={{
-        name, short_description
+        name, short_description, slug
       }}
       >
         {({formState, values, formApi}) => { 
           return (
             <>
-              <ProfileForm/>
+              <ProfileForm slug={slug}/>
               <Row type="flex" justify="center" style={{marginTop: "10px"}}>
                 <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                   <Button block type="warning" onClick={() => {
