@@ -48,7 +48,7 @@ const CreateProfile = () => {
       widget_type: 'single_image_post',
       is_dynamic_content: false,
       link_type: "general",
-      section_name: "header_pinned",
+      section_name: "header-pinned",
       image_url: "",
       post_title: "", 
       url: ""

@@ -42,6 +42,9 @@ const ProfileCard = (props) => {
       }
     >
       <Space>
+        <Link to={`/profile/${id}/rencent-project`} style={{ textDecoration: 'none' }}>
+          <Button theme='borderless' type='primary'>Recent project</Button>
+        </Link>        
         <Link to={`/profile/${id}/social-links`} style={{ textDecoration: 'none' }}>
           <Button theme='borderless' type='primary'>Social Links</Button>
         </Link>

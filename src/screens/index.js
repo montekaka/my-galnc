@@ -6,6 +6,7 @@ import ProfileEdit from './ProfileEdit'
 import ProfileSocialLinks from './ProfileSocialLinks'
 import ProfileTechSkills from './ProfileTechSkills'
 import ProfileWidgets from './ProfileWidgets'
+import RecentProject from './RecentProject'
 
 export {
   DemoPage,
@@ -15,5 +16,6 @@ export {
   ProfileEdit,
   ProfileSocialLinks,
   ProfileTechSkills,
-  ProfileWidgets
+  ProfileWidgets,
+  RecentProject
 }
