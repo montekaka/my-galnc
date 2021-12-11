@@ -9,7 +9,7 @@ const ProfilePage = (props) => {
   const id = props.match.params.id;
   const [updatedDate, setUpdatedDate] = useState(new Date());
   
-  const [profile, socialNetworks, techSkills, bodyWidgets, bannerWidgets, loading, errorMessage] = useFetchProfile(id, updatedDate);;
+  const [profile, socialNetworks, techSkills, headerWidgets, bodyWidgets, bannerWidgets, loading, errorMessage] = useFetchProfile(id, updatedDate);;
   const [themes, setThemes] = useAtom(updateThemeAtom);
   const [_, setProfileId] = useAtom(setNewWidgetProfileIdAtom);
   const [currentProfile] = useAtom(currentProfileAtom);
@@ -62,7 +62,32 @@ const ProfilePage = (props) => {
             linkColor={themes.success_color}
             link={`${process.env.REACT_APP_PROFILE_PAGE}/${profile.slug}`}
             links={socialNetworks}
-          />     
+          />
+          <div>
+            {
+              headerWidgets.map((widget, idx) => {
+                return (
+                  <Widget
+                    key={`header-pinned-${idx+1}`}
+                    name={widget.name}
+                    widget_type={widget.widget_type}
+                    icon_name={widget.icon_name}
+                    user_name={widget.user_name}
+                    post_title={widget.post_title}
+                    post_description={widget.post_description}
+                    url={widget.url}
+                    sort_order={widget.sort_order}
+                    is_dynamic_content={widget.is_dynamic_content}
+                    image_url={widget.image_url}
+                    section_name={widget.section_name}
+                    link_type={widget.link_type}
+                    avatar_url={widget.avatar_url}
+                    show_thumbnail={widget.show_thumbnail}                  
+                  />
+                )
+              })
+            }   
+          </div>  
         </div>
         <div className="gl-body">
           <div className="side-col">

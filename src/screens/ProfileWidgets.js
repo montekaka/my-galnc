@@ -7,7 +7,7 @@ import {useFetchWidgets} from '../hooks'
 
 const ProfileWidgets = (props) => {
   const id = props.match.params.id;
-  const [loading, saveChangedItems, widgets, setWidgets] = useFetchWidgets(id);
+  const [loading, saveChangedItems, widgets, setWidgets] = useFetchWidgets(id, 'body');
   // const [selectedSkills, setSelectedSkills] = useState([])
   
   const updateWidgets = (items) => {

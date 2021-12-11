@@ -14,16 +14,16 @@ const steps = [
       description: 'Telling the world a bit about you',
   },
   {
+    title: 'Recent Project',
+    description: "Project you are pound of."
+  },  
+  {
       title: 'Links',
       description: 'Where to find you.  e.g. Linkedin, Twitter, Youtube, and etc.,',
   },
   {
       title: 'Tech Skills',
       description: 'Your tech skills, e.g. React, JavaScript, Python, and etc.,',
-  },
-  {
-    title: 'Recent Project',
-    description: "Project you are pound of."
   }
 ];
 
@@ -43,10 +43,12 @@ const CreateProfile = () => {
     })
 
     setRencentProject({
+      name: "Recent Project",
+      icon_name: "link",
       widget_type: 'single_image_post',
       is_dynamic_content: false,
       link_type: "general",
-      section_name: "header-pinned",
+      section_name: "header_pinned",
       image_url: "",
       post_title: "", 
       url: ""
@@ -135,7 +137,8 @@ const CreateProfile = () => {
     createProfile({
       profile,
       socialNetworks,
-      techSkills
+      techSkills,
+      recentProject
     })
   }
 
@@ -174,7 +177,25 @@ const CreateProfile = () => {
           </Form>
         }
         {
-          currentStep === 1 && <SocialNetworks 
+          currentStep === 1 && <>
+            <Row type="flex" justify="center" style={{marginTop: "10px"}}><Col xs={24} sm={24} md={12} lg={12} xl={12}>
+              <SingleWidgetForm 
+                handleUpdatePreview={handleRecentProjectTestButtonClick}
+                url={recentProjectUrl}
+                widget={recentProject} 
+                handleInputChange={handleRecentProjectLinkChange}/>
+            </Col></Row>
+            <Row type="flex" justify="center" style={{marginTop: "40px"}}>
+                    <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                      <Button block type="warning" onClick={() => {
+                        nextStep()
+                      }}>Next</Button>      
+                    </Col>
+                  </Row>                
+          </>
+        }        
+        {
+          currentStep === 2 && <SocialNetworks 
             items={socialNetworks}
             addNewItem={addSocialNetworkLink}
             removeItem={removeSocialNetworkLink}
@@ -188,7 +209,7 @@ const CreateProfile = () => {
           </SocialNetworks>
         }
         {
-          currentStep === 2 && <TechSkillsPicker 
+          currentStep === 3 && <TechSkillsPicker 
           items={selectedSkills}
           updateSkills={updateSkills}
           >
@@ -205,15 +226,7 @@ const CreateProfile = () => {
             </Row>  
           </TechSkillsPicker>          
         }
-        {
-          currentStep === 3 && <Row type="flex" justify="center" style={{marginTop: "10px"}}><Col xs={24} sm={24} md={12} lg={12} xl={12}>
-            <SingleWidgetForm 
-              handleUpdatePreview={handleRecentProjectTestButtonClick}
-              url={recentProjectUrl}
-              widget={recentProject} 
-              handleInputChange={handleRecentProjectLinkChange}/>
-          </Col></Row>
-        }
+
       </div>     
     </div>
   )

@@ -8,6 +8,7 @@ const useFetchProfile = (slug, updatedDate) => {
   const [techSkills, setTechSkills] = useState([]);
   const [bodyWidgets, setBodyWidgets] = useState([]);
   const [bannerWidgets, setBannerWidgets] = useState([]);
+  const [headerWidgets, setHeaderWidgets] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -20,14 +21,15 @@ const useFetchProfile = (slug, updatedDate) => {
       .then((res) => {
         
         setLoading(false);
-        const {profile, social_networks, tech_skills, body_widgets, banner_widgets} = res.data;
+        const {profile, social_networks, tech_skills, body_widgets, banner_widgets, header_pinned} = res.data;
         
         setDarkColor(profile.dark_color);
         setProfile(profile);
         setSocialNetworks(social_networks)
         setTechSkills(tech_skills)
         setBodyWidgets(body_widgets)
-        setBannerWidgets(banner_widgets)        
+        setBannerWidgets(banner_widgets)   
+        setHeaderWidgets(header_pinned)     
       })
       .catch((err) => {
         setLoading(false);
@@ -37,7 +39,7 @@ const useFetchProfile = (slug, updatedDate) => {
     }
   }, [slug, updatedDate])
 
-  return [profile, socialNetworks, techSkills, bodyWidgets, bannerWidgets, loading, errorMessage];
+  return [profile, socialNetworks, techSkills, headerWidgets, bodyWidgets, bannerWidgets, loading, errorMessage];
 }
 
 export default useFetchProfile;

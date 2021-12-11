@@ -3,7 +3,7 @@ import {railsApi} from '../apis';
 import { useAtom } from "jotai";
 import {updateNotificationAtom} from '../jotais'
 
-const useFetchWidgets = (id) => {
+const useFetchWidgets = (id, section_name) => {
   // const [items, setItems] = useState([]);
   const [widgets, setWidgets] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -13,7 +13,7 @@ const useFetchWidgets = (id) => {
   useEffect(() => {
     setLoading(true);
 
-    railsApi.get(`/v1/profiles/${id}/widgets`)
+    railsApi.get(`/v1/profiles/${id}/widgets?section_name=${section_name}`)
     .then((res) => {      
       const arr = res.data;
       // setItems(arr);
@@ -26,7 +26,7 @@ const useFetchWidgets = (id) => {
   }, [])
 
   const saveChangedItems = () => {
-    railsApi.post(`/v1/profiles/${id}/sync_widgets`, {items: widgets})
+    railsApi.post(`/v1/profiles/${id}/sync_widgets`, {items: widgets, section_name})
     .then((res) => {
       setWidgets(res.data)
       updateNotification({

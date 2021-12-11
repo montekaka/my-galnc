@@ -9,6 +9,12 @@
   gap: 1rem;
 }
 
+.profile-app-page-grid > .gl-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .profile-app-page-grid > .gl-body {
   display: flex;
   flex-direction: column;
@@ -35,15 +41,22 @@
   }
 
   .profile-app-page-grid {
+    width: 100%;
     max-width: 1050px;
-    display: flex;
+    display: flex;    
     flex-direction: column;
     gap: 1rem;
   }
 
+  .profile-app-page-grid > .gl-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    column-gap: 1rem;
+  }
+  
   .profile-app-page-grid > .gl-body {
     display: grid;
-    grid-template-columns: 300px minmax(0, 1fr);
-    grid-gap: 1rem;
+    grid-template-columns: 300px minmax(0, 1fr);   
+    column-gap: 1rem; 
   }  
 }

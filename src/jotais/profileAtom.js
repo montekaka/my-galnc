@@ -44,7 +44,7 @@ export const fetchProfilesAtom = atom((get) => {
 export const createProfileAtom = atom(null, (get, set, data) => {
   const currentState = get(profilesAtom);
   const notiData = get(notificationAtom);
-  const {profile, socialNetworks, techSkills} = data;
+  const {profile, socialNetworks, techSkills, recentProject} = data;
 
   set(profilesAtom, async () => {
     try {
@@ -52,7 +52,10 @@ export const createProfileAtom = atom(null, (get, set, data) => {
       const id = res.data.id;
       await railsApi.post(`/v1/profiles/${id}/sync_social_networks`, {items: socialNetworks});
       await railsApi.post(`/v1/profiles/${id}/sync_tech_skills`, {items: techSkills});
-  
+      if(recentProject && recentProject.url !== "" && recentProject.post_title !== "") {
+        await railsApi.post(`/v1/profiles/${id}/widgets`, recentProject);
+      }
+        
       set(notificationAtom, () => {
         return {...notiData, 
           createdTime: new Date(),
