@@ -13,10 +13,25 @@ const RecentProject = (props) => {
   const [url, setUrl] = useState('');
 
   useEffect(() => {
-    if(widgets && widgets[0]) {
-      const _url = widgets[0]['url']
-      setUrl(_url)
-    }    
+    if(widgets) {
+      if(widgets[0]) {
+        const _url = widgets[0]['url']
+        setUrl(_url)
+      } else {
+        setWidgets([{
+          id: -100,
+          name: "Recent Project",
+          icon_name: "link",
+          widget_type: 'single_image_post',
+          is_dynamic_content: false,
+          link_type: "general",
+          section_name: "header-pinned",
+          image_url: "",
+          post_title: "", 
+          url: ""
+        }])
+      }
+    }
   }, [widgets])
   
 
@@ -69,24 +84,8 @@ const RecentProject = (props) => {
           </Col>                
         </Row>    
       </>  
-      // <WidgetsDnD 
-      //   items={widgets}
-      //   updateItem={updateWidgets}
-      // >
-      //   <Row type="flex" justify="center" style={{marginTop: "20px"}}>
-      //     <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-      //       <Button block type="warning" onClick={handleSave}>Save</Button>      
-      //     </Col>                 
-      //   </Row>  
-      //   <Row type="flex" justify="center" style={{marginTop: "10px"}}>
-      //     <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-      //       <Link to="/" style={{ textDecoration: 'none' }}><Button block type="secondary">Cancel</Button></Link>
-      //     </Col>                
-      //   </Row>
-      // </WidgetsDnD>  
     )
   }
-  
 
   return null;
 }
