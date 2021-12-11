@@ -29,7 +29,7 @@ const WidgetBuilder = ({handleSave, setModal}) => {
     <div>
       <WidgetOptions>
         <div style={{marginTop: "40px", marginBottom: "40px"}}>
-          <WidgetDemo/>
+          <WidgetDemo user_name={widget.user_name} url={widget.url} widget={widget}/>
           <div style={{display: 'flex', gap: "10px", marginTop: "40px", justifyContent: 'flex-end'}}>
             <Button theme="tertiary" type="tertiary" onClick={handleCancel}>Cancel</Button>
             <Button theme="primary" type="primary" onClick={handleSaveClick}>Save</Button>

@@ -4,7 +4,7 @@ import {themeAtom} from '../../jotais'
 import {
   GithubCalendarCard,
   ProfileCard, SinglePost, 
-  TweetCard, RecentPosts, MyStacks
+  TweetCard, RecentPosts, MyStacks, ImageBackgroundPost
 } from 'glance-react-components'
 import RssFeedWidget from './RssFeedWidget'
 
@@ -84,6 +84,16 @@ const Widget = (props) => {
         avatar_url={avatar_url}
         show_thumbnail={show_thumbnail}    
         backgroundColor={primary_color}  
+      />
+    )
+  } else if (widget_type === "single_image_post") {
+    return (
+      <ImageBackgroundPost
+        textColor={info_color}
+        textBackgroundColor={`${primary_color}60`}
+        title={post_title}
+        link={url}
+        imgSrc={image_url}
       />
     )
   }

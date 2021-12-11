@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {useAtom} from 'jotai'
+import {msParserApi} from '../../apis';
 import { Form, Col, Row, Steps, Button, useFormApi} from '@douyinfe/semi-ui';
 import ProfileForm from './ProfileForm'
 import SocialNetworks from './SocialNetworks'
 import TechSkillsPicker from './TechSkillsPicker'
+import {SingleWidgetForm} from './../widget-builder'
 import {createProfileAtom} from '../../jotais'
 
 const steps = [
@@ -19,12 +21,18 @@ const steps = [
       title: 'Tech Skills',
       description: 'Your tech skills, e.g. React, JavaScript, Python, and etc.,',
   },
+  {
+    title: 'Recent Project',
+    description: "Project you are pound of."
+  }
 ];
 
 const CreateProfile = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const { Step } = Steps;
   const [profile, setProfile] = useState(null)
+  const [recentProject, setRencentProject] = useState(null)
+  const [recentProjectUrl, setRecentProjectUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const [_, createProfile] = useAtom(createProfileAtom);
 
@@ -32,6 +40,16 @@ const CreateProfile = () => {
     setProfile({
       name: null,
       short_description: null
+    })
+
+    setRencentProject({
+      widget_type: 'single_image_post',
+      is_dynamic_content: false,
+      link_type: "general",
+      section_name: "header-pinned",
+      image_url: "",
+      post_title: "", 
+      url: ""
     })
   }, [])
 
@@ -46,6 +64,29 @@ const CreateProfile = () => {
 
   const nextStep = () => {
     setCurrentStep(currentStep+1);
+  }
+
+  const handleRecentProjectLinkChange = (e) => {
+    if(e === "") {
+      setRecentProjectUrl("");
+      // setRencentProject({...recentProject, url: e, post_title: "", image_url: ""})
+    } else {
+      setRecentProjectUrl(e);
+      // setRencentProject({...recentProject, url: e})
+    }    
+  }
+
+  const handleRecentProjectTestButtonClick = async () => {
+    // const url = recentProject.url;
+    try {
+      const res = await msParserApi.get(`/v1/url_parser?uri=${recentProjectUrl}`)
+      const {image, title} = res.data;
+      setRencentProject({...recentProject, url: recentProjectUrl, image_url: image, post_title: title})
+    } catch (err) {
+      console.log(err);
+      // TODO: some notification that link does not work
+    }
+
   }
 
   const addSocialNetworkLink = (network) => {
@@ -163,6 +204,15 @@ const CreateProfile = () => {
               </Col>            
             </Row>  
           </TechSkillsPicker>          
+        }
+        {
+          currentStep === 3 && <Row type="flex" justify="center" style={{marginTop: "10px"}}><Col xs={24} sm={24} md={12} lg={12} xl={12}>
+            <SingleWidgetForm 
+              handleUpdatePreview={handleRecentProjectTestButtonClick}
+              url={recentProjectUrl}
+              widget={recentProject} 
+              handleInputChange={handleRecentProjectLinkChange}/>
+          </Col></Row>
         }
       </div>     
     </div>

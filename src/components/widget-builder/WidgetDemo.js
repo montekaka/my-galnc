@@ -2,16 +2,15 @@ import React, {useEffect} from "react";
 import { useAtom } from 'jotai';
 import { Skeleton } from '@douyinfe/semi-ui';
 import {Widget} from '../widgets'
-import {initWidgetAtom, initWidgetIdxAtom, setWidgetInputValueAtom} from '../../jotais'
 
 const style = {
   display: 'flex',
   alignItems: 'flex-start',
 };
 
-const WidgetDemo = () => {
-  const [widget, setWidget] = useAtom(initWidgetAtom);
-  const {user_name, url} = widget;
+const WidgetDemo = ({user_name, url, widget}) => {
+  // const [widget, setWidget] = useAtom(initWidgetAtom);
+  // const {user_name, url} = widget;
 
   const placeholder = (
     <div>
