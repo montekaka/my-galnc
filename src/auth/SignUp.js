@@ -16,7 +16,7 @@ const SignUp = () => {
     <div>
       <p>Sign up</p>
       <AuthForm onSubmit={onSubmit}>
-        <Button htmlType='submit' type="tertiary" block>Sign up</Button>
+        <Button theme="solid" type="tertiary" htmlType='submit' block>Sign up</Button>
       </AuthForm>
       <SignInWithTwitter/>
     </div>

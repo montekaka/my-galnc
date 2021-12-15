@@ -33,7 +33,7 @@ const AuthRoute = ({ component: Component, ...rest }) => {
     return (
       <Route {...rest} render={(props) => (
         <div className="user-auth-wrapper">
-          <div style={{minWidth: '340px'}}>
+          <div style={{minWidth: '340px', display: 'flex', justifyContent: 'center'}}>
             <Component {...props} />
           </div>              
         </div>  

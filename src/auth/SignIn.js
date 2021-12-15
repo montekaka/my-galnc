@@ -16,7 +16,7 @@ const SignIn = () => {
     <div>
       <p>Login to Your Account</p>
       <AuthForm onSubmit={onSubmit}>
-        <Button htmlType='submit' type="tertiary" block>Log in</Button>        
+        <Button htmlType='submit' theme="solid"  type="tertiary" block>Log in</Button>        
       </AuthForm>
       <SignInWithTwitter/>
     </div>
