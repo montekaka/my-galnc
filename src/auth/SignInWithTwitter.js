@@ -21,7 +21,7 @@ const SignInWithTwitter = () => {
     <div style={{ marginTop: "20px",width: "340px", display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>                  
       <Button 
         block
-        theme="secondary"
+        theme="solid"
         type="secondary"
         onClick={onClick} 
         icon={<IconTwitter />}>Sign in With Twitter</Button>
