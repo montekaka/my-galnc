@@ -7,6 +7,7 @@ import ProfileSocialLinks from './ProfileSocialLinks'
 import ProfileTechSkills from './ProfileTechSkills'
 import ProfileWidgets from './ProfileWidgets'
 import RecentProject from './RecentProject'
+import {TwitterLoginCallback} from './callbacks'
 
 export {
   DemoPage,
@@ -17,5 +18,6 @@ export {
   ProfileSocialLinks,
   ProfileTechSkills,
   ProfileWidgets,
-  RecentProject
+  RecentProject,
+  TwitterLoginCallback
 }

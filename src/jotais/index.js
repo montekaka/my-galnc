@@ -1,5 +1,7 @@
 import {themeAtom, updateThemeAtom} from './themeAtom'
-import {authAtom, tryLocalSignin, signout, signin, signup} from './authAtom'
+import {authAtom, tryLocalSignin, 
+  signout, signin, signup, signinWithTwitterAtom
+} from './authAtom'
 import {notificationAtom, updateNotificationAtom} from './notificationAtom'
 import {modalAtom, setModalAtom} from './modalAtom'
 import {
@@ -58,5 +60,6 @@ export {
   updateWidgetAtom,
   setCurrentProfileAtom,
   currentProfileAtom,
-  resetWidgetAtom
+  resetWidgetAtom,
+  signinWithTwitterAtom
 }

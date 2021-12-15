@@ -67,6 +67,7 @@ export const signup = atom(null, (get, set, data) => {
     }
   })  
 })
+
 export const signin = atom(null, (get, set, tryUser) => {
   const {email, password, is_activated} = tryUser;
   const _email = email.toLowerCase();
@@ -129,4 +130,46 @@ export const signout = atom(null, (get, set, _) => {
       return temp;
     }
   }) 
+})
+
+
+export const signinWithTwitterAtom = atom(null, (get, set, tokens) => {
+  const {oauth_token, oauth_verifier} = tokens;
+  // const _email = email.toLowerCase();
+  const notiData = get(notificationAtom);
+
+  set(authAtom, async () => {        
+    try {      
+      const res = await railsApi.post('/v1/twitter_sign_in', {oauth_token, oauth_verifier})
+      const headers = res.headers;
+      const user = res.data.data;
+      AsyncStorage.setHeaderItems(headers);
+      // Mixpanel.identify(user.id);
+      // Mixpanel.track('Successful login', {email: _email});            
+      // Mixpanel.people.set({$email: user.email, $is_email_invite: is_activated});
+
+      return {...temp, ...user, signedIn: true, type: 'signin'}
+            
+    } catch (err) {
+      // console.log(err)
+      AsyncStorage.removeHeaderItems()
+      // Mixpanel.track('Unsuccessful login', {email: _email});      
+      // const notiDataId = (notiData.id ? notiData.id : 1) + 1;      
+      set(notificationAtom, () => {
+        return {...notiData, 
+          createdTime: new Date(),
+          message: "Failed to login, please try again.",
+          status: true,
+        }
+      })
+
+      setTimeout(() => {        
+        set(notificationAtom, () => {
+          return {...notiData, createdTime: new Date(), status: false};
+        }) 
+      }, 3000)
+
+      return {...temp, signedIn: false, type: 'add_error'};
+    }
+  })
 })
