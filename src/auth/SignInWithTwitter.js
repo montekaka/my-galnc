@@ -6,16 +6,19 @@ import { IconTwitter } from '@douyinfe/semi-icons';
 const SignInWithTwitter = () => {
   // to get the login to twitter link
   const onClick = () => {
-    railsApi.get(`/v1/twitter_sign_in_link`)
-    .then((res) => {
-      const url = res.data.request_url;      
-      window.location.href = url;
-    })
-    .catch((err) => {
-      // indicate something went wrong
-      console.log(err);
-    })
+    // railsApi.get(`/v1/twitter_sign_in_link`)
+    // .then((res) => {
+    //   const url = res.data.request_url;      
+    //   window.location.href = url;
+    // })
+    // .catch((err) => {
+    //   // indicate something went wrong
+    //   console.log(err);
+    // })
+    const link = `${process.env.REACT_APP_RAILS}/v1/twitter_sign_in_link`
+    window.location.href = link;
   }
+  
   
   return (
     <div style={{ marginTop: "20px",width: "340px", display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>                  
