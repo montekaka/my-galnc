@@ -3,6 +3,7 @@ import { Button } from '@douyinfe/semi-ui';
 import { useAtom } from 'jotai';
 import { signup} from '../jotais'
 import AuthForm from './AuthForm'
+import SignInWithTwitter from './SignInWithTwitter'
 
 const SignUp = () => {
   const [, userSignUp] = useAtom(signup);
@@ -17,6 +18,7 @@ const SignUp = () => {
       <AuthForm onSubmit={onSubmit}>
         <Button htmlType='submit' type="tertiary" block>Sign up</Button>
       </AuthForm>
+      <SignInWithTwitter/>
     </div>
   )
 }

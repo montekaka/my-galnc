@@ -10,7 +10,7 @@ const AuthForm = (props) => {
   }
 // values => handleSubmit(values)
   return (
-    <Form onSubmit={handleSubmit} style={{width: 340}}>
+    <Form onSubmit={handleSubmit} style={{width: "340px"}}>
         {({formState, values, formApi}) => (
             <>
                 <Form.Input field='email' label='Email Address' style={{ width: '100%' }} placeholder='Enter your email address'></Form.Input>

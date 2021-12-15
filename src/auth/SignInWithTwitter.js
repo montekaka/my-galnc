@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {railsApi} from '../apis'
+import {  Button  } from '@douyinfe/semi-ui';
+import { IconTwitter } from '@douyinfe/semi-icons';
 
 const SignInWithTwitter = () => {
   // to get the login to twitter link
@@ -16,7 +18,14 @@ const SignInWithTwitter = () => {
   }
   
   return (
-    <div onClick={onClick}>Sign in With Twitter</div>
+    <div style={{ marginTop: "20px",width: "340px", display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>                  
+      <Button 
+        block
+        theme="secondary"
+        type="secondary"
+        onClick={onClick} 
+        icon={<IconTwitter />}>Sign in With Twitter</Button>
+    </div>
   )
 }
 
